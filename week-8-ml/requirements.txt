@@ -1,0 +1,8 @@
+numpy==2.5.3
+pandas==3.0.5
+scikit-learn==1.9.1
+xgboost==3.4.1
+statsmodels==0.15.0
+matplotlib==3.11.2
+jupyter==1.1.1
+ipykernel==7.3.0
