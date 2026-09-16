@@ -6,3 +6,4 @@ statsmodels==0.15.0
 matplotlib==3.11.2
 jupyter==1.1.1
 ipykernel==7.3.0
+kagglehub
