@@ -55,3 +55,8 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Workshop Assets
+
+Some hand gesture images used in the workshop materials were generated
+using OpenAI's image generation tools for demonstration purposes.
