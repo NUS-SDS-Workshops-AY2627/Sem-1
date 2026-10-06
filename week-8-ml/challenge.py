@@ -82,12 +82,12 @@ base_knn = pipeline(KNeighborsClassifier())
 
 
 # ===== YOUR TURN: change these four numbers =====
-TREE_MAX_DEPTH = 5          # how many questions the tree may ask. Too small = too simple,
+TREE_MAX_DEPTH = 13          # how many questions the tree may ask. Too small = too simple,
                              # too big = memorises the training data. Try 2 to 10.
-TREE_MIN_SAMPLES_LEAF = 10    # smallest group allowed at the end of a branch. Bigger = calmer
+TREE_MIN_SAMPLES_LEAF = 1    # smallest group allowed at the end of a branch. Bigger = calmer
                              # tree. Try 1, 5, 10, 20, 40.
-KNN_NEIGHBOURS = 10           # how many similar people vote. Try 3 to 40.
-KNN_WEIGHTS = "distance"      # "uniform" or "distance" (closer people count more)
+KNN_NEIGHBOURS = 5           # how many similar people vote. Try 3 to 40.
+KNN_WEIGHTS = "uniform"      # "uniform" or "distance" (closer people count more)
 # Stuck? Optional for experienced people: look up GridSearchCV in scikit-learn.
 # ===== END OF YOUR TURN =====
 
