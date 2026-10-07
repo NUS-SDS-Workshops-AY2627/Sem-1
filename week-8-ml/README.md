@@ -84,9 +84,9 @@ into a stacked ensemble, and see whether the team beats the best single model.
 
 1. Run cells top to bottom.
 2. Only edit cells marked **YOUR TURN**.
-3. Judge your models only with the CV score printed in the notebook. Don't touch the test split.
+3. Judge your models with the CV (Cross validation) score while you experiment.
 4. Answer the three reflection questions in the blank cells provided.
-5. Before handing in, **Restart and Run All** to confirm everything still works top to bottom.
+5. Once you've settled on your final settings, run the test set check in section 6, once.
 
 ## Datasets
 
