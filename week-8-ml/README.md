@@ -101,10 +101,13 @@ first time it runs.
 
 ## If something breaks
 
-- **`pip install` fails on numpy with a "Requires-Python" error:** you're not on Python 3.12. Check
-  with `python3 --version`, delete the `.venv` folder, and recreate it with `python3.12 -m venv .venv`.
+- **`pip install` fails on numpy with a "Requires-Python" error:
+- 1. (cmd+shift+p) -> (type: select interpreter) -> refresh to look for the fresh venv.
+- 2. If 1 does not work, i.e., venv not popping up, continue by "Enter interpreter path" -> key in week-8-ml/.venv/bin/python3.12 -> this should point the vscode to the find the correct venv.
+
 - **Mac + XGBoost error mentioning `libomp`:** run `brew install libomp` in Terminal, then restart the
   kernel.
+
 - **Can't find a CSV:** make sure `data/` sits right next to the notebook you're running.
-- **Wrong kernel selected in VS Code:** click the kernel picker top-right and confirm it points at
-  the Python interpreter inside `.venv`, not your system Python or another environment.
+
+- **Wrong kernel selected in VS Code:** click the kernel picker top-right and confirm it points at the Python interpreter inside `.venv`, not your system Python or another environment.
