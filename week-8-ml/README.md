@@ -16,23 +16,24 @@ own models.
 
 ## Participant steps
 
-Follow these in order. You only need to do steps 1 to 4 once.
+Follow these in order. You only need to do steps 1 to 3 once.
 
 ### 1. Get the files
 
-Download or clone this repository, then open the `week-8-ml` folder. It should contain the four
-notebooks above, a `data/` folder, and `requirements.txt`. Keep this folder structure as is — don't
-move the notebooks out on their own.
+Download (green **Code** button, then **Download ZIP**) or clone
+https://github.com/NUS-SDS-Workshops-AY2627/Sem-1, then open the `week-8-ml` folder. It should
+contain the four notebooks above, a `data/` folder, and `requirements.txt`. Keep this folder
+structure as is, don't move the notebooks out on their own.
 
 ### 2. Check your Python version
 
 This workshop needs **Python 3.12** specifically.
 
 ```
-python3 --version
+python3 --version        # Windows: py -3.12 --version
 ```
 
-- **Python 3.11 or earlier:** will fail to install — `numpy==2.5.3` in `requirements.txt` requires
+- **Python 3.11 or earlier:** will fail to install, because `numpy==2.5.3` in `requirements.txt` requires
   3.12+.
 - **Python 3.13/3.14:** some packages (notably XGBoost) don't reliably have stable wheels yet, and
   may error on setup (for example, a `libomp` error on Mac).
@@ -42,16 +43,16 @@ If you're not on 3.12, download it from **https://www.python.org/downloads/** be
 ### 3. Create and activate a virtual environment
 
 A virtual environment (venv) keeps this workshop's packages separate from anything else on your
-machine. **One venv covers all four notebooks** — you only set this up once for the whole folder.
+machine. **One venv covers all four notebooks** and you only set this up once for the whole folder.
 
 ```
 cd week-8-ml
-python3.12 -m venv .venv
+python3.12 -m venv .venv         # Windows: py -3.12 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Next time you open the project, just activate it again (`source .venv/bin/activate`) — no need to
+Next time you open the project, just activate it again (`source .venv/bin/activate`). No need to
 recreate or reinstall unless you delete `.venv`.
 
 ### 4. Open a notebook in VS Code and select the right kernel
@@ -63,7 +64,7 @@ notebooks.
 2. Click the kernel picker in the top-right corner.
 3. Choose the Python interpreter inside `.venv` (not your system Python or any other environment).
 
-Repeat step 4 for each notebook you open — the kernel choice is per-notebook, but it's the same
+Repeat this for each notebook you open. The kernel choice is per-notebook, but it's the same
 `.venv` every time.
 
 ### 5. Run the notebooks, in this order
@@ -83,36 +84,25 @@ into a stacked ensemble, and see whether the team beats the best single model.
 
 1. Run cells top to bottom.
 2. Only edit cells marked **YOUR TURN**.
-3. Judge your models only with the CV score printed in the notebook — don't touch the test split.
+3. Judge your models only with the CV score printed in the notebook. Don't touch the test split.
 4. Answer the three reflection questions in the blank cells provided.
 5. Before handing in, **Restart and Run All** to confirm everything still works top to bottom.
 
-Do not run the last cell (facilitator-only, see below) — that's for the facilitator at the end of
-the session.
-
----
-
-## Facilitator notes
-
-The last cell in `hands_on_ensemble.ipynb` is facilitator-only, gated behind `FACILITATOR = False`.
-Flip to `True` to score every model once on the held-out test split. Scoring repeatedly on the same
-test split leaks information, so run it once per participant/group.
-
 ## Datasets
 
-The `data/` folder already has what `hands_on_ensemble.ipynb` and `part_1_time_series.ipynb` need:
-- `bedtime_screentime_sleep_debt.csv`
-- `2026_WS_ses_demo.csv`
-- `student.csv`
+The `data/` folder already has what `part_1`, `part_2` and `hands_on_ensemble` need:
+- `2026_WS_ses_demo.csv` (part 1)
+- `student.csv` (part 2)
+- `bedtime_screentime_sleep_debt.csv` (hands-on exercise)
 
 `part_3_unsupervised.ipynb` downloads its datasets automatically via `kagglehub` (Mall Customers,
-sklearn moons, Groceries dataset) — no local file needed, but it does need internet access the
+sklearn moons, Groceries dataset). No local file needed, but it does need internet access the
 first time it runs.
 
 ## If something breaks
 
-- **`pip install` fails on numpy with a "Requires-Python" error:** you're not on Python 3.12 — check
-  with `python3 --version` and recreate your venv with `python3.12 -m venv .venv`.
+- **`pip install` fails on numpy with a "Requires-Python" error:** you're not on Python 3.12. Check
+  with `python3 --version`, delete the `.venv` folder, and recreate it with `python3.12 -m venv .venv`.
 - **Mac + XGBoost error mentioning `libomp`:** run `brew install libomp` in Terminal, then restart the
   kernel.
 - **Can't find a CSV:** make sure `data/` sits right next to the notebook you're running.
