@@ -60,3 +60,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Some hand gesture images used in the workshop materials were generated
 using OpenAI's image generation tools for demonstration purposes.
+
+## Dataset
+
+The gesture classification dataset was collected by the workshop development team using webcam images and MediaPipe Hand Landmarker.
+
+It contains four gestures (`OPEN_PALM`, `FIST`, `PEACE`, `POINTING`) collected from three contributors using both hands. Two contributors are used for training, while the third is held out to evaluate generalisation to an unseen participant.
+
+See [`data/README.md`](data/README.md) for the full data collection methodology.
