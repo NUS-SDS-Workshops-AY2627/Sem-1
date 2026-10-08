@@ -96,14 +96,14 @@ Where:
 The contributors are intentionally separated during model evaluation:
 
 ```text
-Member A ─┐
-          ├── Training
-Member B ─┘
+Member A ─── Held-out Test
 
-Member C ─── Held-out Test
+Member B ─┐
+          ├── Training
+Member C ─┘
 ```
 
-Member C's samples are not used during model training.
+Member A's samples are not used during model training.
 
 This allows the project to evaluate how well the gesture classifier generalises to a person whose hand data it has not seen during training.
 
@@ -122,14 +122,6 @@ The script guides the contributor through each gesture and handedness combinatio
 ## Workshop Image Assets
 
 The hand gesture images in `workshop_images/` were generated using **OpenAI's image generation tools** for use as demonstration materials in this Computer Vision workshop.
-
-These images are used to demonstrate concepts such as:
-
-- Hand detection
-- Bounding boxes
-- Intersection over Union (IoU)
-- Non-Maximum Suppression (NMS)
-- Hand landmark detection
 
 ### Images
 
