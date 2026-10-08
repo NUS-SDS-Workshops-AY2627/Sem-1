@@ -1,1 +1,7 @@
-!pip install -q mediapipe pandas scikit-learn matplotlib opencv-python
+ipython
+matplotlib
+mediapipe
+numpy
+opencv-python
+pandas
+scikit-learn
