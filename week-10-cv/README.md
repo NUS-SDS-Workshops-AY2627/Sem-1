@@ -1,117 +1,132 @@
 # NUS SDS Computer Vision Workshop
 
-This workshop uses two Jupyter notebooks. Participants should clone this
-repository, open the repository folder in VS Code, create a Python environment,
-and run the notebooks locally.
+This workshop contains two participant notebooks. You can run them either
+locally in VS Code or in Google Colab. Choose one environment and run the
+notebooks in the order below.
 
 ## Workshop route
 
-Run the notebooks in this order:
-
 1. **`(Participant Template) SDS_CV_Workshop.ipynb`**  
-   An introduction to images, RGB pixels, a pretrained CNN, inference, model
-   scores, and common classification mistakes. Complete the cells marked
-   `TODO`.
-2. **`hands-on (draft).ipynb`**  
-   A hands-on gesture-recognition activity. It uses MediaPipe to extract 21
-   hand landmarks, converts them into wrist-relative features, trains a
-   Random Forest classifier, and evaluates it on an unseen participant.
+   Learn how images are represented as RGB pixels, how a pretrained CNN makes
+   predictions, and why model scores do not guarantee reliable classification.
+2. **`(Participant Template) hand-gesture-recogniser.ipynb`**  
+   Use MediaPipe to extract 21 hand landmarks, construct wrist-relative
+   features, train a Random Forest classifier, evaluate it on a held-out person,
+   and test the complete pipeline on a new hand image.
 
-Do not use the files beginning with **`(Worked Solution)`** during the
-participant exercise. They are provided for presenters and self-checking.
+Do not use files beginning with **`(Worked Solutions)`** during the participant
+exercise. They are provided for presenters and self-checking.
 
 ## Project structure
 
 ```text
 week-10-cv/
 ├── (Participant Template) SDS_CV_Workshop.ipynb
-├── hands-on (draft).ipynb
-├── (Worked Solution) hand-gesture-recogniser.ipynb
+├── (Participant Template) hand-gesture-recogniser.ipynb
+├── (Worked Solutions) hand-gesture-recogniser.ipynb
 ├── (Worked Solutions) SDS_CV_Workshop.ipynb
 ├── data/
 │   ├── member_a_gestures.csv
 │   ├── member_b_gestures.csv
 │   ├── member_c_gestures.csv
 │   └── workshop_images/
-├── requirements.txt
-└── src/
-    └── collect_workshop_data.py
+└── requirements.txt
 ```
 
+The `src/` directory contains organiser-only data-collection materials and is
+excluded from the participant copy through `.gitignore`. Participants do not
+need those files to complete either notebook.
+
 The supplied gesture dataset contains four labels:
-`OPEN_PALM`, `FIST`, `PEACE`, and `POINTING`. Members B and C are used for
-training; Member A is held out as an unseen-person test set.
+`OPEN_PALM`, `FIST`, `PEACE`, and `POINTING`.
 
-## 1. Clone and open the project in VS Code
+The gesture notebook intentionally uses this person-separated split:
 
-Open a PowerShell terminal and run:
+```text
+Training:       Member B + Member C
+Held-out test:  Member A
+```
+
+Member A is not used during training. This tests generalisation to a person
+whose hand data the classifier has not seen. It does not prove that the model
+works for every person, camera, background, or lighting condition.
+
+## Option A: Run locally in VS Code
+
+### 1. Get the workshop folder
+
+Use the repository URL supplied by the workshop organisers. Do not copy the
+GitHub web-page URL ending in `/tree/main/week-10-cv` into `git clone`.
 
 ```powershell
-git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1/tree/main/week-10-cv
-cd week-10-cv
+git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git
+cd NUS-SDS-Workshops-AY2627\Sem-1\week-10-cv
 code .
 ```
 
-Replace `https://github.com/NUS-SDS-Workshops-AY2627/Sem-1/tree/main/week-10-cv` with the repository URL supplied by the workshop
-organisers. Open the **`week-10-cv` folder**, not an individual notebook, in
-VS Code. Keeping the repository root open allows the notebooks to find the
-model, images, and CSV files.
+If the organisers provide a ZIP file instead, extract it and open the
+`week-10-cv` folder in VS Code. Open the folder, not just an individual
+notebook, so that the relative `data\` paths work.
 
-Install the **Python** and **Jupyter** extensions in VS Code if they are not
-already installed.
+### 2. Install VS Code extensions
 
-## 2. Create and select a Python environment
+Install these extensions from the VS Code Extensions view:
 
-Python 3.10 or newer is recommended. Create a project-specific virtual
-environment from the repository root:
+- **Python** (`ms-python.python`)
+- **Jupyter** (`ms-toolsai.jupyter`)
+
+### 3. Create a virtual environment
+
+Open a PowerShell terminal at the `week-10-cv` folder:
 
 ```powershell
-py -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pip install tensorflow pillow
 ```
 
-The `requirements.txt` file covers the gesture notebook. TensorFlow and Pillow
-are installed separately because they are used by the first notebook.
+Python 3.10 or 3.11 is recommended because TensorFlow availability depends on
+the Python version and operating system. The gesture notebook itself does not
+need TensorFlow, but the first notebook does.
 
-In VS Code:
+If PowerShell blocks activation, use the environment's interpreter directly:
 
-1. Open either notebook.
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install tensorflow pillow
+```
+
+### 4. Select the VS Code kernel
+
+1. Open either participant notebook.
 2. Click **Select Kernel** in the top-right corner.
-3. Choose the interpreter whose path contains
-   `.venv\Scripts\python.exe`.
-4. If the environment is not listed, choose **Enter interpreter path** and
-   select `.venv\Scripts\python.exe`.
+3. Choose the interpreter containing `.venv\Scripts\python.exe`.
+4. If it is not listed, choose **Select Another Kernel > Python Environments**
+   or **Enter interpreter path**, then select `.venv\Scripts\python.exe`.
+5. Restart the kernel if you changed the selection.
 
-Verify the environment before starting the workshop:
+Verify the environment from the VS Code terminal:
 
 ```powershell
 python -c "import tensorflow, mediapipe, cv2, pandas, sklearn; print('Environment is ready')"
 ```
 
-If this command fails, fix the environment before running notebook cells. See
-the troubleshooting section below.
+### 5. Run the notebooks
 
-## 3. Run the participant template
+Open and run the notebooks from top to bottom with **Shift+Enter**:
 
-Open **`(Participant Template) SDS_CV_Workshop.ipynb`** and run cells from top
-to bottom with **Shift+Enter**.
+1. `(Participant Template) SDS_CV_Workshop.ipynb`
+2. `(Participant Template) hand-gesture-recogniser.ipynb`
 
-The first setup run downloads the sample Labrador image and MobileNetV2 model
-weights, so internet access is required. A GPU is not required.
+The first notebook downloads MobileNetV2 weights and a sample image. The
+gesture notebook uses `hand_landmarker.task` and the files in `data\`.
+Internet access is required for downloads; a GPU is not required.
 
-For the first run, keep this setting unchanged:
-
-```python
-image_source = "sample"
-```
-
-The notebook's `image_source = "upload"` option uses
-`google.colab.files`, which is specific to Google Colab and will not work
-unchanged in local VS Code. To test a local image, keep the sample mode for the
-workshop or replace the upload cell with a local path, for example:
+For local image testing in the first notebook, keep `image_source = "sample"`
+for the workshop example. If you use `image_source = "upload"`, replace the
+Colab-only upload cell with a local path such as:
 
 ```python
 from pathlib import Path
@@ -123,122 +138,171 @@ with Image.open(image_path) as image_file:
 image_name = image_path.name
 ```
 
-Complete the exercises in order. If a cell reports that a `TODO` is unfinished,
-edit that cell and run it again before continuing.
+## Option B: Run in Google Colab
 
-## 4. Run the hand-gesture notebook
+Colab provides the Python runtime in the cloud, but uploading only an
+`.ipynb` file does **not** upload the `data` folder or `hand_landmarker.task`.
+Use one of the two file-transfer methods below before running the notebooks.
 
-Open **`hands-on (draft).ipynb`** after completing the participant template.
-Run the setup, landmark, feature, training, evaluation, and prediction cells
-in order.
+### Method 1: Upload the workshop folder as a ZIP
 
-The notebook uses:
-
-- `hand_landmarker.task` as the pretrained MediaPipe model;
-- the example images in `data/workshop_images/`;
-- `data/member_a_gestures.csv`, `data/member_b_gestures.csv`, and
-  `data/member_c_gestures.csv`.
-
-The model file is already included. If it is missing, the notebook can download
-it from the official MediaPipe model URL. Do not download model files from
-untrusted sources.
-
-### Important path fix for the current draft notebook
-
-The current draft contains paths written as if the notebook were inside a
-`notebooks` subfolder. Because the notebook is currently in the repository
-root, change these paths if you see `FileNotFoundError`:
+1. On your computer, compress the complete `week-10-cv` folder into a ZIP file.
+2. Open [Google Colab](https://colab.research.google.com/).
+3. Upload and open the participant notebook.
+4. Run this setup cell first:
 
 ```python
-# Current draft values
-"../data/member_a_gestures.csv"
-"../data/workshop images/open_palm.png"
+from google.colab import files
+import io
+import os
+import zipfile
 
-# Use these values from the repository root
-"data/member_a_gestures.csv"
-"data/workshop_images/open_palm.png"
+uploaded = files.upload()
+zip_name = next(
+    name for name in uploaded
+    if name.lower().endswith(".zip")
+)
+
+with zipfile.ZipFile(io.BytesIO(uploaded[zip_name])) as archive:
+    archive.extractall("/content")
+
+candidate_roots = [
+    "/content/week-10-cv",
+    "/content/Sem-1/week-10-cv",
+]
+PROJECT_ROOT = next(
+    root for root in candidate_roots
+    if os.path.exists(os.path.join(root, "data"))
+)
+os.chdir(PROJECT_ROOT)
+print("Project root:", os.getcwd())
 ```
 
-Apply the same change to the Member B and Member C CSV paths. The actual folder
-name is `workshop_images` with an underscore.
+Then install the packages:
 
-## Debugging and common problems
+```python
+%pip install -q -r requirements.txt
+%pip install -q tensorflow pillow
+```
 
-### The notebook says `No module named ...`
+If the first notebook is the only notebook being run, the gesture packages
+are not needed, but installing the full requirements keeps the two notebooks
+consistent.
 
-The notebook is using a different Python interpreter from the one where the
-packages were installed. Select `.venv\Scripts\python.exe` with **Select
-Kernel**, then restart the kernel and rerun the setup cells.
+### Method 2: Clone the repository
 
-Install packages through the selected interpreter:
+Use this only when the organisers provide a cloneable repository URL:
+
+```python
+!git clone <WORKSHOP_REPOSITORY_URL> /content/workshop
+%cd /content/workshop/Sem-1/week-10-cv
+%pip install -q -r requirements.txt
+%pip install -q tensorflow pillow
+```
+
+If the repository itself is already the `week-10-cv` project, change the
+`%cd` path to the folder containing `requirements.txt`, `data`, and the
+notebooks.
+
+### Run in Colab
+
+1. Run the file-transfer and installation cells above.
+2. Confirm the working directory:
+
+   ```python
+   from pathlib import Path
+   print(Path.cwd())
+   print(Path("data").exists())
+   ```
+
+3. Run the participant notebooks from top to bottom.
+4. When the runtime disconnects or resets, rerun the setup, file-transfer, and
+   installation cells before continuing.
+
+The first notebook's `image_source = "upload"` option works in Colab because
+it uses `google.colab.files`. For the gesture notebook, change
+`UNSEEN_IMAGE_PATH` to another file under `data/workshop_images/` if desired.
+
+## Exercise checkpoints
+
+Complete the cells marked **TODO** in the hand-gesture notebook:
+
+1. Make every landmark coordinate relative to the wrist.
+2. Train the Random Forest with `X_train` and `y_train`.
+3. Choose an image for the final unseen-image test.
+
+If a checkpoint raises `NotImplementedError`, edit the preceding TODO cell and
+run it again before continuing. Record your observations in the markdown
+answer cells.
+
+## Troubleshooting
+
+### `No module named ...`
+
+In VS Code, confirm that the notebook kernel is `.venv\Scripts\python.exe`.
+Then restart the kernel and run:
 
 ```powershell
 python -m pip install -r requirements.txt
 python -m pip install tensorflow pillow
 ```
 
-Using `python -m pip` is safer than using `pip` because it installs into the
-Python environment currently selected in the terminal.
+In Colab, rerun the `%pip install` cells and then use **Runtime > Restart
+session** before running the notebook again.
 
 ### TensorFlow will not install
 
-Confirm the Python version and platform:
+Check the Python version and platform:
 
 ```powershell
 python --version
 python -c "import platform; print(platform.platform())"
 ```
 
-Use Python 3.10 or 3.11 if the current workshop machine cannot install a
-compatible TensorFlow wheel. On Windows, a CPU-only run is sufficient; do not
-spend workshop time configuring CUDA or a GPU.
-
-### `google.colab` cannot be imported
-
-This is expected when running the local VS Code version of the first notebook.
-Keep `image_source = "sample"` or use the local-image code shown above. Do not
-install a package called `google.colab`.
+Use Python 3.10 or 3.11 for local execution if the current Python version
+does not have a compatible TensorFlow wheel. A CPU runtime is sufficient.
 
 ### `FileNotFoundError` for `data`, an image, or a CSV
 
-Check that VS Code opened the `week-10-cv` folder as the workspace and that the
-relative path starts with `data\` (or `data/` inside Python strings). For the
-gesture notebook, apply the path fix above, including the
-`workshop_images` underscore.
-
-You can check the notebook's working directory with:
+In VS Code, open the `week-10-cv` folder as the workspace. In Colab, make sure
+the ZIP was extracted or the repository was cloned, then change into the
+directory containing `data`:
 
 ```python
 from pathlib import Path
 print(Path.cwd())
+print(list(Path("data").iterdir()))
 ```
+
+The correct image directory is `data/workshop_images` with an underscore.
 
 ### `hand_landmarker.task` is missing
 
-Run the gesture notebook's model-download cell again, or download the model
-from the official MediaPipe URL shown in the notebook. Make sure the file is
-saved directly in the repository root beside the notebooks.
+Run the gesture notebook's model-download cell again. The notebook downloads
+the model from the official MediaPipe model URL and saves it in the project
+root. Do not download model files from untrusted sources.
 
-### A notebook cell is stuck or shows stale output
+### Stale output or a stuck cell
 
-Use **Restart Kernel**, then run all cells from the top. Variables from an
-earlier run can hide missing setup steps or outdated paths. If the problem
-continues, use **Clear All Outputs** and rerun the notebook in order.
+Use **Restart Kernel** in VS Code, or **Runtime > Restart session** in Colab.
+Then run the setup and notebook cells from the top. Clear old outputs if
+necessary.
 
-### The prediction or accuracy is unexpected
+### Unexpected accuracy or predictions
 
-Check that the feature cell ran before the training cell and that the notebook
-uses all 63 landmark features (`x0` through `z20`). Inspect the confusion
-matrix rather than accuracy alone. Member A is intentionally unseen during
-training, so its score may be lower than a random train/test split.
+Check that:
 
-When asking for help, include the exact error message, the notebook cell that
-failed, the output of `Path.cwd()`, and the Python version. Do not include
-personal images or credentials.
+- the feature cell ran before the training cell;
+- all 63 landmark features (`x0` through `z20`) are selected;
+- Member A remains completely outside the training data; and
+- the confusion matrix is inspected instead of accuracy alone.
+
+The held-out-person result is an experiment under controlled collection
+conditions, not a guarantee of real-world accuracy.
 
 ## Dataset and workshop assets
 
 See [`data/README.md`](data/README.md) for the landmark format, collection
-methodology, gesture labels, and train/test design. The images in
-`data/workshop_images/` are demonstration assets and are separate from the
-landmark CSV dataset.
+methodology, labels, and train/test design. The `data/` directory and the
+pretrained `hand_landmarker.task` file are the only workshop assets needed by
+participants.
