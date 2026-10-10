@@ -1,0 +1,6 @@
+google-genai
+matplotlib
+numpy
+pandas
+requests
+sentence-transformers
