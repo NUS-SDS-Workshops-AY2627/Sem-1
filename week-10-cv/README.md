@@ -9,10 +9,9 @@ notebooks in the order below.
 1. **`(Participant Template) SDS_CV_Workshop.ipynb`**  
    Learn how images are represented as RGB pixels, how a pretrained CNN makes
    predictions, and why model scores do not guarantee reliable classification.
-2. **`(Participant Template) hand-gesture-recogniser.ipynb`**  
-   Use MediaPipe to extract 21 hand landmarks, construct wrist-relative
-   features, train a Random Forest classifier, evaluate it on a held-out person,
-   and test the complete pipeline on a new hand image.
+2. **`(Participant Template) hand-gesture-recogniser.ipynb`**
+   Use MediaPipe to extract 21 hand landmarks, construct wrist-relative features, train a Random Forest classifier, evaluate it on a held-out person, and test the complete pipeline on a new hand image.\
+   **Optional extension:** Run real-time hand gesture recognition using your webcam in a local Python environment.
 
 Do not use files beginning with **`(Worked Solutions)`** during the participant
 exercise. They are provided for presenters and self-checking.
@@ -32,10 +31,6 @@ week-10-cv/
 │   └── workshop_images/
 └── requirements.txt
 ```
-
-The `src/` directory contains organiser-only data-collection materials and is
-excluded from the participant copy through `.gitignore`. Participants do not
-need those files to complete either notebook.
 
 The supplied gesture dataset contains four labels:
 `OPEN_PALM`, `FIST`, `PEACE`, and `POINTING`.
@@ -194,8 +189,8 @@ consistent.
 Use this only when the organisers provide a cloneable repository URL:
 
 ```python
-!git clone <WORKSHOP_REPOSITORY_URL> /content/workshop
-%cd /content/workshop/Sem-1/week-10-cv
+!git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git /content
+%cd /content/Sem-1/week-10-cv
 %pip install -q -r requirements.txt
 %pip install -q tensorflow pillow
 ```
@@ -222,6 +217,15 @@ notebooks.
 The first notebook's `image_source = "upload"` option works in Colab because
 it uses `google.colab.files`. For the gesture notebook, change
 `UNSEEN_IMAGE_PATH` to another file under `data/workshop_images/` if desired.
+
+**Optional webcam extension (Section 8)**
+
+The hand gesture recognition notebook includes an optional real-time webcam extension.
+
+- **Local VS Code / Jupyter:** Supported using `cv2.VideoCapture(0)`.
+- **Google Colab:** Not supported directly, as the notebook cannot access your laptop webcam through OpenCV.
+
+Participants using Google Colab can skip Section 8. Sections 0–7 are sufficient to complete the main workshop.
 
 ## Exercise checkpoints
 
@@ -299,6 +303,18 @@ Check that:
 
 The held-out-person result is an experiment under controlled collection
 conditions, not a guarantee of real-world accuracy.
+
+### Webcam not opening (Optional Section 8)
+
+If the webcam extension does not work:
+
+1. Ensure the notebook is running locally rather than in Google Colab.
+2. Check that your operating system allows VS Code or Python to access the camera.
+3. Close other applications that may be using the webcam.
+4. If the camera opens but displays a black screen, try restarting the notebook kernel.
+5. If necessary, try changing `cv2.VideoCapture(0)` to `cv2.VideoCapture(1)` to select another available camera.
+
+Press **Q** while the webcam window is focused to stop recognition.
 
 ## Dataset and workshop assets
 
