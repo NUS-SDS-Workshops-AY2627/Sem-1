@@ -9,6 +9,7 @@ notebooks in the order below.
 1. **`(Participant Template) SDS_CV_Workshop.ipynb`**  
    Learn how images are represented as RGB pixels, how a pretrained CNN makes
    predictions, and why model scores do not guarantee reliable classification.
+
 2. **`(Participant Template) hand-gesture-recogniser.ipynb`**
    Use MediaPipe to extract 21 hand landmarks, construct wrist-relative features, train a Random Forest classifier, evaluate it on a held-out person, and test the complete pipeline on a new hand image.\
    **Optional extension:** Run real-time hand gesture recognition using your webcam in a local Python environment.
