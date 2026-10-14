@@ -1,0 +1,51 @@
+query,expected_module,top_5_module_codes,rank_of_correct_module,hit_at_5,reciprocal_rank
+Which NUS module is titled Leadership in Biomedicine?,ABM5001,ABM5001 | MDG5237 | GMS1000 | NUR3114 | NUR5503,1,1,1.0
+Which NUS module is titled Advanced Biostatistics for Research?,ABM5002,GMS6800 | GMS6892 | NRM3301R | NRM3302R | GMS1000,not retrieved,0,0.0
+Which NUS module is titled Biomedical Innovation & Enterprise?,ABM5003,MDG5236 | BMA5905 | BN5101 | BN5304 | MDG5252,not retrieved,0,0.0
+Which NUS module is titled Capstone Project?,ABM5004,CN4118N | CIT5010 | ISY5007 | GMS5748 | PHM5017,not retrieved,0,0.0
+Which NUS module is titled Advanced Agile Project Management for Biomedicine Practitioners?,ABM5005,ABM5005 | BMI5306 | IND5005 | TIC4003 | MDG5237,1,1,1.0
+Which NUS module is titled Applied Immunology?,ABM5101,MIC2000 | MIC2000A | MDG5207 | ABM5101 | LSM4222,4,1,0.25
+Which NUS module is titled Vaccine development and its modern applications?,ABM5102,ABM5102 | MIC2000 | MIC2000A | MDG5207 | PHM5012,1,1,1.0
+Which NUS module is titled Advanced technologies in immune therapeutic development?,ABM5103,ABM5103 | NST2048 | MDG5207 | MIC2000 | MIC2000A,1,1,1.0
+Which NUS module is titled Microbiome-Aging-Immunity crosstalk?,ABM5104,ABM5104 | MIC2000 | MIC2000A | GEC1011 | NUR5507,1,1,1.0
+Which NUS module is titled Drugs used in Infectious Diseases?,ABM5105,MIC2000A | MIC2000 | NUR5507 | ABM5105 | MDG5246,4,1,0.25
+Which NUS module is titled Anticancer Therapeutics?,ABM5106,ABM5106 | GMS1000 | NST2048 | PHM5017 | MDG5207,1,1,1.0
+"Which NUS module is titled One World, One Health: Ecosystems, Animals and Us?",ABM5107,ABM5107 | GMS5155 | SPH3204 | SPH5406 | AN2208,1,1,1.0
+Which NUS module is titled Architectural History of Singapore?,AC5001,AC5001 | GESS1011 | GESS1009 | GES1011 | AC5011,1,1,1.0
+Which NUS module is titled Conservation Approaches and Philosophies?,AC5002,SH5882C | AC5002 | NST2052 | BL5199 | LL5459X,2,1,0.5
+Which NUS module is titled Architectural Heritage Management?,AC5004,AC5004 | AC5002 | VCU3101 | AC5016 | AR5423,1,1,1.0
+Which NUS module is titled Dissertation?,AC5007,CP5101 | UD5641 | NRM3301R | NRM3302R | NRM3301,not retrieved,0,0.0
+Which NUS module is titled Design for Conservation?,AC5008,SH5882C | NRM3301R | ESE4501 | NRM3302R | NRM3301,not retrieved,0,0.0
+Which NUS module is titled Design for Adaptive Reuse?,AC5009,NRM3302R | NRM3301R | ME3163 | NRM3302 | NRM3301,not retrieved,0,0.0
+Which NUS module is titled Historic Buildings Survey and Recording?,AC5010,AC5010 | AC5011 | IPM2103 | CE5806QA | AR5423,1,1,1.0
+Which NUS module is titled Conservation of C20th Buildings?,AC5011,AC5011 | CE5902AB | AC5012 | SH5882C | AR5323,1,1,1.0
+Which NUS module is titled Practical Building Conservation Skills?,AC5012,AC5012 | SH5882C | AR5323 | AC5014 | ETP2271,1,1,1.0
+Which NUS module is titled Internship?,AC5014,CFG2101 | NMC5305 | CFG2600A | MDG5600 | ETP3204S,not retrieved,0,0.0
+"Which NUS module is titled Critical Approaches: Heritage, Conservation and Place?",AC5016,AC5016 | AC5002 | VCU3101 | AC5008 | ACE5404,1,1,1.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701A,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,not retrieved,0,0.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701B,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,not retrieved,0,0.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701C,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,2,1,0.5
+Which NUS module is titled Accounting for Decision Makers?,ACC1701D,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,not retrieved,0,0.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701E,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,3,1,0.3333
+Which NUS module is titled Accounting for Decision Makers?,ACC1701XA,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,not retrieved,0,0.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701XB,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,4,1,0.25
+Which NUS module is titled Accounting for Decision Makers?,ACC1701XC,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,1,1,1.0
+Which NUS module is titled Accounting for Decision Makers?,ACC1701XD,ACC1701XC | ACC1701C | ACC1701E | ACC1701XB | ACC1701XD,5,1,0.2
+Which NUS module is titled Managerial Accounting?,ACC2706,ACC2706 | BMA5003 | BMT5103 | BMC5501 | BMC5027,1,1,1.0
+Which NUS module is titled Corporate Accounting & Reporting I?,ACC2707,ACC2707 | ACC2708 | ACC4702 | BMT5401B | LL5439S,1,1,1.0
+Which NUS module is titled Corporate Accounting & Reporting II?,ACC2708,ACC2708 | ACC4702 | ACC2707 | BMT5401B | ACC3704,1,1,1.0
+Which NUS module is titled Financial Accounting?,ACC2712,LL5439S | ACC4702 | ACC2708 | BMF5323 | ACC1701C,not retrieved,0,0.0
+"Which NUS module is titled Business Processes, Systems and Assurance-Foundation?",ACC2727,BMC5501 | BMA5901 | ACC3727 | BMA5902 | IE5766,not retrieved,0,0.0
+Which NUS module is titled Assurance and Attestation?,ACC3701,ACC3701 | SH5882C | ACC3727 | NUR5724 | NRM3301R,1,1,1.0
+Which NUS module is titled Corporate and Securities Law?,ACC3702,ACC3702 | LL5055 | LL5188S | LLJ5412 | LL5412,1,1,1.0
+Which NUS module is titled Taxation?,ACC3703,ACC3703 | LC5035 | ACC4711 | RE3702 | BAA6002A,1,1,1.0
+Which NUS module is titled Advanced Corporate Accounting and Reporting?,ACC3704,ACC4702 | ACC3704 | ACC2708 | ACC2707 | BMT5401B,2,1,0.5
+Which NUS module is titled Valuation?,ACC3705,ACC4703 | ACC3705 | LL5527V | LL6527V | LL4527V,2,1,0.5
+"Which NUS module is titled Governance, Risk Management and Sustainability?",ACC3706,ACC3706 | LL5459X | FIN3722 | BMG5203 | SH5882C,1,1,1.0
+Which NUS module is titled Integrated Perspectives in Accounting and Business?,ACC3707,ACC4701 | ACC3707 | ACC4752 | ACC4702 | ACC4751,2,1,0.5
+Which NUS module is titled Carbon Accounting and Management?,ACC3717,ACC3717 | BMG5205 | CE4002 | BMT5401B | IE5210,1,1,1.0
+"Which NUS module is titled Business Processes, Systems and Assurance - Advanced?",ACC3727,BMC5501 | BMA5901 | ACC3727 | IE5766 | BPM1705,3,1,0.3333
+Which NUS module is titled Integrated Perspectives in Accounting and Business?,ACC4701,ACC4701 | ACC3707 | ACC4752 | ACC4702 | ACC4751,1,1,1.0
+Which NUS module is titled Advanced Corporate Accounting and Reporting?,ACC4702,ACC4702 | ACC3704 | ACC2708 | ACC2707 | BMT5401B,1,1,1.0
+Which NUS module is titled Valuation?,ACC4703,ACC4703 | ACC3705 | LL5527V | LL6527V | LL4527V,1,1,1.0
+Which NUS module is titled Advanced Taxation?,ACC4711,LC5035 | ACC3703 | ACC4711 | NRM3301R | NRM3302R,3,1,0.3333
