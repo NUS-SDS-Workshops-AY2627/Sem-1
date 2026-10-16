@@ -8,6 +8,7 @@ Typical setup cell:
 """
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -109,6 +110,52 @@ def keyword_search(query):
     return [module for module in modules if needle in module["description"].lower()]
 
 
+GEMINI_API_KEY = None  # set by connect_gemini()
+_gemini_client = None  # kept alive here: google-genai closes a client once it is garbage-collected
+
+# Answers saved while rehearsing, keyed by the exact prompt. Shown when the API call fails.
+CANNED_ANSWERS = {}
+
+
+def connect_gemini(api_key=None):
+    """Find the Gemini API key: argument, Colab secret, GEMINI_API_KEY env var, or ask."""
+    global GEMINI_API_KEY, _gemini_client
+    if not api_key:
+        try:
+            from google.colab import userdata
+
+            api_key = userdata.get("GEMINI_API_KEY")
+        except Exception:  # not on Colab, or no secret saved
+            api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        from getpass import getpass
+
+        api_key = getpass("Paste your Gemini API key and press Enter: ")
+    GEMINI_API_KEY = api_key.strip()
+    _gemini_client = None  # rebuilt with the new key on the next call
+
+
+def gemini_client():
+    """Return the Gemini client, asking for the key first if needed."""
+    global _gemini_client
+    if _gemini_client is None:
+        from google import genai
+
+        if GEMINI_API_KEY is None:
+            connect_gemini()
+        _gemini_client = genai.Client(api_key=GEMINI_API_KEY)
+    return _gemini_client
+
+
 def ask_gemini(prompt):
     """One Gemini call with search grounding off; returns canned text on error."""
-    raise NotImplementedError("Section 1: implement ask_gemini.")
+    try:
+        # No tools in the request, so Gemini cannot run a Google Search.
+        response = gemini_client().models.generate_content(model=GEMINI_MODEL, contents=prompt)
+        return response.text or ""
+    except Exception as error:
+        message = getattr(error, "message", None) or error
+        print(f"(Gemini call failed: {str(message)[:150]})")
+        return CANNED_ANSWERS.get(
+            prompt, "(No answer: Gemini is unavailable and there is no saved answer for this prompt.)"
+        )
