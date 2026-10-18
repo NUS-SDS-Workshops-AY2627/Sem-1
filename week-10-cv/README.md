@@ -70,53 +70,34 @@ Search for and install these two extensions by Microsoft:
 
 ### 3. Get the Workshop Files
 
-You can download the repository as a ZIP file or clone it using Git.
+Download the [workshop repository](https://github.com/NUS-SDS-Workshops-AY2627/Sem-1) using either method below.
 
-**Option A: Download ZIP**
+**Option A: Download ZIP (Recommended)**
 
-1. Open the [workshop repository](https://github.com/NUS-SDS-Workshops-AY2627/Sem-1).
-2. Click **Code → Download ZIP**.
-3. Extract the ZIP file.
-4. Open the `week-10-cv` folder in VS Code using **File → Open Folder**.
+1. Open the repository link above.
+2. Click the green **Code → Download ZIP** button.
+3. Extract the ZIP file to your preferred location.
+4. In VS Code, select **File → Open Folder** and open `Sem-1/week-10-cv`.
 
-**Option B: Clone using Git**
+**Option B: Clone with Git**
 
-First, install [Git](https://git-scm.com/downloads) if needed.
+If you have [Git](https://git-scm.com/downloads) installed:
 
-In VS Code, open **Terminal → New Terminal**.
-
-Navigate to the folder where you want to store the repository:
-
-- **Windows:** Open File Explorer, navigate to your preferred folder and copy its path from the address bar.
-- **macOS:** In Finder, select your preferred folder and press `Option + Command + C` to copy its path.
-
-Then run `cd` followed by your copied path, for example:
-
-```bash
-cd "YOUR_FOLDER_PATH"
-```
-
-Clone the repository:
+1. Open **Terminal → New Terminal** in VS Code.
+2. Navigate to your preferred folder using `cd "YOUR_FOLDER_PATH"`.
+   - **Windows:** Copy the folder path from File Explorer's address bar.
+   - **macOS:** Select the folder in Finder and press `Option + Command + C` to copy its path.
+3. Run:
 
 ```bash
 git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git
-```
-
-Navigate to the workshop directory:
-
-```bash
 cd Sem-1/week-10-cv
-```
-
-Open it in VS Code:
-
-```bash
 code .
 ```
 
-If `code .` is not recognised, use **File → Open Folder** instead.
+If `code .` is not recognised, use **File → Open Folder** in VS Code instead.
 
-**Important:** Open the entire `week-10-cv` folder, not just an individual notebook, so that the relative file paths work correctly.
+**Important:** Open the entire `week-10-cv` folder, not just an individual notebook, so that the relative dataset paths work correctly.
 
 ### 4. Create and Activate a Virtual Environment
 
@@ -178,23 +159,15 @@ If you see `Setup successful!`, you're ready to proceed.
 ### 6. Select the Jupyter Kernel
 
 1. Open a participant notebook in VS Code.
-2. Click **Select Kernel** in the top-right corner.
-3. Choose **Python Environments** and select your `.venv` environment.
+2. Click **Select Kernel** (top-right) → **Python Environments**.
+3. Select the `.venv` environment created earlier.
 
-If `.venv` is not listed:
+If `.venv` is missing, open the Command Palette (`Ctrl/Cmd + Shift + P`) → **Python: Select Interpreter** → **Enter interpreter path**.
 
-1. Press `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (macOS).
-2. Search for **Python: Select Interpreter**.
-3. Refresh the environment list or choose **Enter interpreter path**.
+- **Windows:** `.venv\Scripts\python.exe`
+- **macOS:** `.venv/bin/python`
 
-The Python interpreter is located at:
-
-| System | Interpreter path |
-|---|---|
-| Windows | `.venv\Scripts\python.exe` |
-| macOS | `.venv/bin/python` |
-
-Select the same `.venv` kernel for both notebooks.
+Use the same environment for both notebooks.
 
 ### 7. Run the Notebooks
 
@@ -213,95 +186,15 @@ For the live gesture recognition activity, ensure your webcam is available and a
 
 ## Troubleshooting
 
-### Python 3.12 is not recognised
+| Issue | What to do |
+|---|---|
+| **Python 3.12 not recognised** | Check your installation using `py -3.12 --version` (Windows) or `python3.12 --version` (macOS). |
+| **PowerShell blocks `.venv` activation** | Open a Command Prompt terminal in VS Code and run `.venv\Scripts\activate.bat`. |
+| **`.venv` not appearing in VS Code** | Open the Command Palette (`Ctrl/Cmd + Shift + P`) → **Python: Select Interpreter** → Refresh or **Enter interpreter path**. |
+| **`ModuleNotFoundError`** | Select the correct `.venv` kernel, reinstall dependencies with `python -m pip install -r requirements.txt`, then restart the kernel. |
+| **`FileNotFoundError`** | Open the `week-10-cv` folder in VS Code. Check that `data/hagrid/` exists relative to the notebook. |
+| **MediaPipe model download fails** | Check your internet connection and rerun the model download cell. |
+| **Webcam not opening** | Allow camera access, close other apps using the webcam, or try `cv2.VideoCapture(1)` instead of `cv2.VideoCapture(0)`. |
+| **Notebook stuck or outdated output** | Restart the Jupyter kernel and rerun the notebook from the beginning. |
 
-Check your installation:
-
-**Windows:**
-
-```powershell
-py -3.12 --version
-```
-
-**macOS:**
-
-```bash
-python3.12 --version
-```
-
-If the command fails, confirm that Python 3.12 is installed correctly.
-
-You can have multiple Python versions installed simultaneously. You do not need to uninstall your existing version.
-
-### PowerShell blocks virtual environment activation
-
-If you encounter a script execution policy error, open a **Command Prompt** terminal in VS Code instead and run:
-
-```cmd
-.venv\Scripts\activate.bat
-```
-
-Alternatively, install packages directly into the environment without activating it:
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m pip install ipykernel
-```
-
-### `.venv` does not appear in VS Code
-
-1. Press `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (macOS).
-2. Search for **Python: Select Interpreter**.
-3. Refresh the environment list.
-4. If it still does not appear, select **Enter interpreter path** and locate `.venv` manually.
-
-Restart VS Code if necessary.
-
-### `ModuleNotFoundError`
-
-Make sure your notebook is using the `.venv` kernel.
-
-If the issue persists, activate `.venv` and run:
-
-```bash
-python -m pip install -r requirements.txt
-python -m pip install ipykernel
-```
-
-Restart the notebook kernel afterwards.
-
-### `FileNotFoundError`
-
-Make sure you've opened the `week-10-cv` folder in VS Code.
-
-Check the working directory in a notebook cell:
-
-```python
-from pathlib import Path
-
-print("Current directory:", Path.cwd())
-print("Dataset found:", Path("data/hagrid").exists())
-```
-
-The second line should print `True`.
-
-### MediaPipe model download fails
-
-The hand gesture notebook automatically downloads `hand_landmarker.task` if it is missing.
-
-Check your internet connection and rerun the model download cell.
-
-### Webcam does not open
-
-If the live webcam activity does not work:
-
-1. Check that your operating system allows camera access.
-2. Close other applications using the webcam.
-3. Restart the notebook kernel.
-4. If the wrong camera is selected or the webcam does not open, try changing `cv2.VideoCapture(0)` to `cv2.VideoCapture(1)` to access another available camera.
-
-Press **Q** while the webcam window is focused to stop recognition.
-
-### Notebook is stuck or showing outdated results
-
-Click **Restart Kernel** in VS Code and rerun the notebook from the beginning.
+**Tip:** If your environment is not working, first check that the notebook is using the correct `.venv` kernel. This is a common cause of setup errors.
