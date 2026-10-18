@@ -1,70 +1,200 @@
-# Hand Gesture Classifier
+# See, Detect, Understand: Introduction to Computer Vision ✋
 
-This project aims to build a hand gesture classifier using computer vision techniques. The classifier will be trained on hand gesture data collected from multiple team members and will be evaluated on unseen data.
+Welcome to the **NUS SDS Computer Vision Workshop**!
 
-## Project Structure
+This workshop introduces image classification, hand landmark detection and gesture recognition through two hands-on notebooks.
 
+All notebooks are designed to run **locally in VS Code**.
+
+## Contents
+
+| Notebook | Topic |
+|---|---|
+| `(Participant Template) SDS_CV_Workshop.ipynb` | Explore RGB images, CNNs and image classification using pretrained MobileNetV2. |
+| `(Participant Template) hand-gesture-recogniser.ipynb` | Extract hand landmarks using MediaPipe, train a gesture classifier and test live webcam recognition. |
+
+Files beginning with `(Worked Solutions)` contain completed exercises for reference.
+
+For dataset details and licensing, see [`data/README.md`](data/README.md).
+
+---
+
+## Participant Setup
+
+Follow these steps in order. **Steps 1–5 only need to be completed once.**
+
+We recommend completing the setup **before the workshop**.
+
+### 1. Install Python 3.12
+
+This workshop uses **Python 3.12** for compatibility with the required libraries.
+
+If you already have Python 3.12, skip this step. If you have another version installed, you can install Python 3.12 alongside it without uninstalling your existing version.
+
+**Windows:**
+
+1. Download the [Python 3.12 installer](https://www.python.org/downloads/release/python-31210/).
+2. Select the **Windows installer (64-bit)**.
+3. Run the installer and select **Add Python to PATH**, if available.
+
+Verify in PowerShell:
+
+```powershell
+py -3.12 --version
 ```
-hand-gesture-classifier
-├── notebooks
-│   └── hand_gesture_classifier_colab.ipynb  # Jupyter notebook for Google Colab
-├── data
-│   ├── train
-│   │   ├── member_1                           # Training data for team member 1
-│   │   ├── member_2                           # Training data for team member 2
-│   └── test
-│       └── member_3                           # Testing data for team member 3
-├── src
-│   ├── data_collection.py                      # Script for capturing hand gesture data
-│   ├── feature_extraction.py                   # Script for extracting features from images
-│   └── train_classifier.py                      # Script for training the gesture classifier
-├── requirements.txt                            # Required packages for the project
-└── README.md                                   # Project documentation
+
+**macOS:**
+
+1. Download the [Python 3.12 installer](https://www.python.org/downloads/release/python-31210/).
+2. Select the **macOS 64-bit universal2 installer**.
+3. Follow the installation instructions.
+
+Verify in Terminal:
+
+```bash
+python3.12 --version
 ```
 
-## Getting Started
+Both commands should display `Python 3.12.x`.
 
-To get started with this project, follow these steps:
+### 2. Install VS Code and Extensions
 
-1. **Clone the Repository**: Clone this repository to your local machine.
-   
-   ```bash
-   git clone <repository-url>
-   ```
+Download [Visual Studio Code](https://code.visualstudio.com/) if you haven't already.
 
-2. **Install Requirements**: Install the necessary packages listed in `requirements.txt`. You can do this by running:
+In VS Code, open the **Extensions** tab (`Ctrl + Shift + X` on Windows / `Cmd + Shift + X` on macOS).
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+Search for and install these two extensions by Microsoft:
 
-3. **Open the Notebook**: Navigate to the `notebooks` directory and open `hand_gesture_classifier_colab.ipynb` in Google Colab.
+- [**Python**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) — Python support and environment selection.
+- [**Jupyter**](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) — Run `.ipynb` notebooks in VS Code.
 
-4. **Run the Notebook**: Follow the instructions in the notebook to set up the environment, collect hand gesture data from the camera, and train the classifier using the provided data.
+### 3. Get the Workshop Files
 
-## Usage
+Download the [workshop repository](https://github.com/NUS-SDS-Workshops-AY2627/Sem-1) using either method below.
 
-- The `data_collection.py` script is used to capture hand gesture images from the camera and save them in the appropriate directories.
-- The `feature_extraction.py` script processes the captured images to extract relevant features for gesture recognition.
-- The `train_classifier.py` script trains the gesture classifier using the extracted features and the training data.
+**Option A: Download ZIP (Recommended)**
 
-## Contributing
+1. Open the repository link above.
+2. Click the green **Code → Download ZIP** button.
+3. Extract the ZIP file to your preferred location.
+4. In VS Code, select **File → Open Folder** and open the `week-10-cv` folder inside the extracted repository.
 
-Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
+**Option B: Clone with Git**
 
-## License
+If you have [Git](https://git-scm.com/downloads) installed:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. Open **Terminal → New Terminal** in VS Code.
+2. Navigate to your preferred folder using `cd "YOUR_FOLDER_PATH"`.
+   - **Windows:** Copy the folder path from File Explorer's address bar.
+   - **macOS:** Select the folder in Finder and press `Option + Command + C` to copy its path.
+3. Run:
 
-## Workshop Assets
+```bash
+git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git
+cd Sem-1/week-10-cv
+code .
+```
 
-Some hand gesture images used in the workshop materials were generated
-using OpenAI's image generation tools for demonstration purposes.
+If `code .` is not recognised, use **File → Open Folder** in VS Code instead.
 
-## Dataset
+**Important:** Open the entire `week-10-cv` folder, not just an individual notebook, so that the relative dataset paths work correctly.
 
-The gesture classification dataset was collected by the workshop development team using webcam images and MediaPipe Hand Landmarker.
+### 4. Create and Activate a Virtual Environment
 
-It contains four gestures (`OPEN_PALM`, `FIST`, `PEACE`, `POINTING`) collected from three contributors using both hands. Two contributors are used for training, while the third is held out to evaluate generalisation to an unseen participant.
+A virtual environment (`.venv`) keeps the workshop dependencies separate from your other Python projects.
 
-See [`data/README.md`](data/README.md) for the full data collection methodology.
+Open **Terminal → New Terminal** in VS Code and ensure you're inside the `week-10-cv` folder.
+
+**Windows (PowerShell):**
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS:**
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+```
+
+Once activated, `(.venv)` should appear in your terminal.
+
+Verify the Python version:
+
+```bash
+python --version
+```
+
+The output should show `Python 3.12.x`.
+
+**Note:** One virtual environment is sufficient for both notebooks. You do not need to recreate it each time.
+
+### 5. Install Python Dependencies
+
+With `.venv` activated, run the following commands in the VS Code terminal:
+
+```bash
+# Upgrade pip
+python -m pip install --upgrade pip
+
+# Install workshop dependencies
+python -m pip install -r requirements.txt
+
+# Install Jupyter kernel
+python -m pip install ipykernel
+```
+
+The requirements include TensorFlow, Pillow, MediaPipe, OpenCV, NumPy, pandas, Matplotlib and scikit-learn.
+
+Verify the installation:
+
+```bash
+python -c "import tensorflow, mediapipe, cv2, sklearn, ipykernel; print('Setup successful!')"
+```
+
+If you see `Setup successful!`, you're ready to proceed.
+
+### 6. Select the Jupyter Kernel
+
+1. Open a participant notebook in VS Code.
+2. Click **Select Kernel** (top-right) → **Python Environments**.
+3. Select the `.venv` environment created earlier.
+
+If `.venv` is missing, open the Command Palette (`Ctrl/Cmd + Shift + P`) → **Python: Select Interpreter** → **Enter interpreter path**.
+
+- **Windows:** `.venv\Scripts\python.exe`
+- **macOS:** `.venv/bin/python`
+
+Use the same environment for both notebooks.
+
+### 7. Run the Notebooks
+
+Run the notebooks in this order:
+
+1. `(Participant Template) SDS_CV_Workshop.ipynb`
+2. `(Participant Template) hand-gesture-recogniser.ipynb`
+
+Run cells from top to bottom using **Shift + Enter** or the run button beside each cell.
+
+An internet connection is required for the initial pretrained model downloads.
+
+For the live gesture recognition activity, ensure your webcam is available and allow camera access when prompted.
+
+---
+
+## Troubleshooting
+
+| Issue | What to do |
+|---|---|
+| **Python 3.12 not recognised** | Check your installation using `py -3.12 --version` (Windows) or `python3.12 --version` (macOS). |
+| **PowerShell blocks `.venv` activation** | Open a Command Prompt terminal in VS Code and run `.venv\Scripts\activate.bat`. |
+| **`.venv` not appearing in VS Code** | Open the Command Palette (`Ctrl/Cmd + Shift + P`) → **Python: Select Interpreter** → Refresh or **Enter interpreter path**. |
+| **`ModuleNotFoundError`** | Select the correct `.venv` kernel, reinstall dependencies with `python -m pip install -r requirements.txt`, then restart the kernel. |
+| **`FileNotFoundError`** | Open the `week-10-cv` folder in VS Code. Check that `data/hagrid/` exists relative to the notebook. |
+| **MediaPipe model download fails** | Check your internet connection and rerun the model download cell. |
+| **Webcam not opening** | Allow camera access, close other apps using the webcam, or try `cv2.VideoCapture(1)` instead of `cv2.VideoCapture(0)`. |
+| **Notebook stuck or outdated output** | Restart the Jupyter kernel and rerun the notebook from the beginning. |
+
+**Tip:** If your environment is not working, first check that the notebook is using the correct `.venv` kernel. This is a common cause of setup errors.
