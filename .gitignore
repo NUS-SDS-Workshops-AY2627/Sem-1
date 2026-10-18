@@ -1,0 +1,6 @@
+# Local Python environments
+.venv/
+
+# Editor and macOS files
+.vscode/
+.DS_Store
