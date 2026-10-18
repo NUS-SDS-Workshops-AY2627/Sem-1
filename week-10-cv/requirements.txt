@@ -1,3 +1,4 @@
+ipykernel
 ipython
 matplotlib
 mediapipe
@@ -5,3 +6,6 @@ numpy
 opencv-python
 pandas
 scikit-learn
+Pillow
+tensorflow
+torch
