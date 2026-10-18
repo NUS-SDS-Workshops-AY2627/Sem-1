@@ -77,7 +77,7 @@ Download the [workshop repository](https://github.com/NUS-SDS-Workshops-AY2627/S
 1. Open the repository link above.
 2. Click the green **Code → Download ZIP** button.
 3. Extract the ZIP file to your preferred location.
-4. In VS Code, select **File → Open Folder** and open `Sem-1/week-10-cv`.
+4. In VS Code, select **File → Open Folder** and open the `week-10-cv` folder inside the extracted repository.
 
 **Option B: Clone with Git**
 
