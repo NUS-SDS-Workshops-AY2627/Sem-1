@@ -4,4 +4,6 @@ numpy
 pandas
 matplotlib
 scikit-learn
+tensorflow
+pillow
 ipykernel
