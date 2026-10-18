@@ -2,6 +2,12 @@
 
 This directory contains the datasets and image assets used for the hand gesture recognition project and Computer Vision workshop.
 
+## Mini CNN Pet Subset
+
+`pet_mini.npz` is a balanced, prepared subset of the Oxford-IIIT Pet Dataset used by the mini CNN notebook. It contains 320 training, 64 validation and 64 test photographs resized to 96 × 96, with cat/dog labels and binary animal masks. The compressed file is about 10 MB, so participants do not need to download the full dataset.
+
+Source: O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar, *Cats and Dogs*, CVPR 2012. The Oxford-IIIT Pet Dataset is distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); image copyrights remain with their original owners. This prepared subset contains resized adaptations and is shared under the same licence.
+
 ---
 
 ## Gesture Landmark Dataset
