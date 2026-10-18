@@ -1,6 +1,6 @@
 # Data
 
-This directory contains the datasets and image assets used for the hand gesture recognition project and Computer Vision workshop.
+This directory contains the datasets used in the Computer Vision workshop.
 
 ## Mini CNN Pet Subset
 
@@ -10,139 +10,57 @@ Source: O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar, *Cats and Dogs
 
 ---
 
-## Gesture Landmark Dataset
+## HaGRID Hand Gesture Dataset
 
-The gesture landmark dataset was collected by the workshop development team using webcams and **MediaPipe Hand Landmarker**.
+We use a subset of the **HaGRID (HAnd Gesture Recognition Image Dataset)** containing 400 images across four gesture classes.
 
-The goal is to train a gesture classifier using hand-landmark features and evaluate whether it can generalise to a participant whose data was not used during training.
+| Gesture | Folder | Images |
+|---|---|---|
+| ✊ Fist | `fist/` | 100 |
+| 👍 Thumbs Up | `like/` | 100 |
+| ✋ Open Palm | `palm/` | 100 |
+| ✌️ Peace | `peace/` | 100 |
 
-### Gestures
-
-The dataset contains four gesture classes:
-
-- ✋ `OPEN_PALM`
-- ✊ `FIST`
-- ✌️ `PEACE`
-- ☝️ `POINTING`
-
-### Data Collection
-
-Three contributors, identified anonymously as **Member A**, **Member B**, and **Member C**, collected gesture samples using the data collection script.
-
-Each contributor performs every gesture using both:
-
-- Left hand
-- Right hand
-
-During collection, contributors introduce natural variation by slowly changing:
-
-- Hand position within the frame
-- Distance from the camera
-- Hand height
-- Hand orientation / slight rotation
-- Natural finger positioning
-
-The intended gesture should remain clearly recognisable throughout collection.
-
-### Landmark Extraction
-
-For every valid sample, MediaPipe Hand Landmarker extracts **21 hand landmarks**.
-
-Each landmark contains three coordinates:
+### Directory Structure
 
 ```text
-(x, y, z)
+data/
+├── README.md
+├── pet_mini.npz
+└── hagrid/
+    ├── fist/
+    ├── like/
+    ├── palm/
+    └── peace/
 ```
 
-This gives:
+Each gesture folder contains 100 images.
 
-```text
-21 landmarks × 3 coordinates = 63 landmark values
-```
+### How the Dataset Is Used
 
-To reduce dependence on where the hand appears in the image, the landmarks are represented relative to the wrist (landmark `0`):
+During the workshop, participants will:
 
-```python
-relative_x = landmark.x - wrist.x
-relative_y = landmark.y - wrist.y
-relative_z = landmark.z - wrist.z
-```
+1. Use **MediaPipe Hand Landmarker** to extract 21 landmarks from each image.
+2. Convert the landmarks into 63 wrist-relative, scale-normalised features.
+3. Train a Random Forest classifier using the extracted features.
+4. Evaluate the classifier on held-out images.
 
-The resulting 63 values are used as features for gesture classification.
+Images where MediaPipe cannot detect a hand are skipped.
 
-### Dataset Structure
+### Train/Test Split
 
-Each row represents one detected hand sample.
+The extracted features use a stratified 80% training and 20% testing split. Because the split is performed at the image level, test images may include people represented in the training set.
 
-The dataset contains:
+### Dataset Source and Licence
 
-```text
-x0, y0, z0,
-x1, y1, z1,
-...
-x20, y20, z20,
-label,
-handedness,
-member,
-session
-```
+- **Original dataset:** [HaGRID](https://github.com/hukenovs/hagrid)
+- **Downloaded from:** [HaGRID Subsets on Hugging Face](https://huggingface.co/datasets/GestureDetectionConnoisseurs/hagrid_subsets)
+- **Licence:** [HaGRID Public Licence](https://github.com/hukenovs/hagrid/blob/master/license/en_us.pdf)
 
-Where:
+For this workshop, we selected and organised a 400-image subset into four gesture folders. No image content was intentionally modified. The images are redistributed under the original HaGRID Public Licence, a modified version of CC BY-SA 4.0.
 
-- `x0 ... z20` — wrist-relative landmark features
-- `label` — gesture class
-- `handedness` — `LEFT` or `RIGHT`
-- `member` — anonymous contributor identifier (`A`, `B`, or `C`)
-- `session` — collection session identifier
-
-`handedness`, `member`, and `session` are metadata and are **not used as input features for the gesture classifier**.
-
-### Train/Test Design
-
-The contributors are intentionally separated during model evaluation:
-
-```text
-Member A ─── Held-out Test
-
-Member B ─┐
-          ├── Training
-Member C ─┘
-```
-
-Member A's samples are not used during model training.
-
-This allows the project to evaluate how well the gesture classifier generalises to a person whose hand data it has not seen during training.
-
-### Collecting the Data
-
-Each team member can collect their dataset by running:
-
-```bash
-python src/collect_workshop_data.py
-```
-
-The script guides the contributor through each gesture and handedness combination and saves only frames where MediaPipe successfully detects the hand.
-
----
-
-## Workshop Image Assets
-
-The hand gesture images in `workshop_images/` were generated using **OpenAI's image generation tools** for use as demonstration materials in this Computer Vision workshop.
-
-### Images
-
-- `open_palm.png` — Open palm gesture
-- `fist.png` — Fist gesture
-- `peace.png` — Peace gesture
-
-### Note
-
-These images are AI-generated and do not depict real individuals.
-
-They are used as workshop demonstration assets and are separate from the hand-landmark dataset collected by the workshop development team.
-
----
+**Attribution:** HaGRID was developed by Alexander Kapitanov and collaborators. The original dataset and its licence are linked above.
 
 ## Tools
 
-Hand landmark extraction is performed using **Google's MediaPipe Hand Landmarker**.
+Hand landmark extraction is performed using Google's MediaPipe Hand Landmarker.
