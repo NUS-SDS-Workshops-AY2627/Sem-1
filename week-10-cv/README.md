@@ -10,9 +10,9 @@ All notebooks are designed to run **locally in VS Code**.
 
 | Notebook | Topic |
 |---|---|
-| `(Participant Template) SDS_CV_Workshop.ipynb` | Explore RGB images, CNNs and image classification using pretrained MobileNetV2. |
-| `(Participant Template) mini_cnn.ipynb` | Train one CNN backbone from scratch, then change its output head and loss for cat/dog classification and animal segmentation. |
-| `(Participant Template) hand-gesture-recogniser.ipynb` | Extract hand landmarks using MediaPipe, train a gesture classifier and test live webcam recognition. |
+| `(Participant Template) 1_SDS_CV_Workshop.ipynb` | Explore RGB images, CNNs and image classification using pretrained MobileNetV2. |
+| `(Participant Template) 2_mini_cnn.ipynb` | Train one CNN backbone from scratch, then change its output head and loss for cat/dog classification and animal segmentation. |
+| `(Participant Template) 3_hand_gesture_recogniser.ipynb` | Extract hand landmarks using MediaPipe, train a gesture classifier and test live webcam recognition. |
 
 Files beginning with `(Worked Solutions)` contain completed exercises for reference.
 
@@ -172,19 +172,19 @@ Use the same environment for all three notebooks.
 
 ### 7. Run the Notebooks
 
-Run the notebooks in this order:
+Run the notebooks in order:
 
-1. `(Participant Template) SDS_CV_Workshop.ipynb`
-2. `(Participant Template) mini_cnn.ipynb`
-3. `(Participant Template) hand-gesture-recogniser.ipynb`
+1. `(Participant Template) 1_SDS_CV_Workshop.ipynb`
+2. `(Participant Template) 2_mini_cnn.ipynb`
+3. `(Participant Template) 3_hand_gesture_recogniser.ipynb`
 
 The Mini CNN notebook connects the introductory CNN material to the hand gesture activity. It shows how the same backbone design can support different computer vision tasks by changing the prediction head, target and loss.
 
-Run cells from top to bottom using **Shift + Enter** or the run button beside each cell.
+Run cells from top to bottom using **Shift + Enter**.
 
 The Mini CNN dataset is already included as `data/pet_mini.npz`. An internet connection is required for the initial pretrained model and MediaPipe model downloads used by the other notebooks.
 
-For the live gesture recognition activity, ensure your webcam is available and allow camera access when prompted.
+For live gesture recognition, ensure your webcam is available and camera access is enabled.
 
 ---
 
