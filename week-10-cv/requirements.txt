@@ -1,9 +1,12 @@
+ipykernel
+ipython
+matplotlib
 mediapipe==1.1.1
+numpy
 opencv-python
 numpy
 pandas
-matplotlib
+pillow
 scikit-learn
 tensorflow
-pillow
-ipykernel
+torch

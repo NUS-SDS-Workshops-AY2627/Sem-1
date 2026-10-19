@@ -2,7 +2,7 @@
 
 Welcome to the **NUS SDS Computer Vision Workshop**!
 
-This workshop introduces image classification, hand landmark detection and gesture recognition through two hands-on notebooks.
+This workshop introduces image classification, semantic segmentation, hand landmark detection and gesture recognition through three hands-on notebooks.
 
 All notebooks are designed to run **locally in VS Code**.
 
@@ -11,6 +11,7 @@ All notebooks are designed to run **locally in VS Code**.
 | Notebook | Topic |
 |---|---|
 | `(Participant Template) SDS_CV_Workshop.ipynb` | Explore RGB images, CNNs and image classification using pretrained MobileNetV2. |
+| `(Participant Template) mini_cnn.ipynb` | Train one CNN backbone from scratch, then change its output head and loss for cat/dog classification and animal segmentation. |
 | `(Participant Template) hand-gesture-recogniser.ipynb` | Extract hand landmarks using MediaPipe, train a gesture classifier and test live webcam recognition. |
 
 Files beginning with `(Worked Solutions)` contain completed exercises for reference.
@@ -129,7 +130,7 @@ python --version
 
 The output should show `Python 3.12.x`.
 
-**Note:** One virtual environment is sufficient for both notebooks. You do not need to recreate it each time.
+**Note:** One virtual environment is sufficient for all three notebooks. You do not need to recreate it each time.
 
 ### 5. Install Python Dependencies
 
@@ -146,12 +147,12 @@ python -m pip install -r requirements.txt
 python -m pip install ipykernel
 ```
 
-The requirements include TensorFlow, Pillow, MediaPipe, OpenCV, NumPy, pandas, Matplotlib and scikit-learn.
+The requirements include PyTorch, TensorFlow, Pillow, MediaPipe, OpenCV, NumPy, pandas, Matplotlib and scikit-learn.
 
 Verify the installation:
 
 ```bash
-python -c "import tensorflow, mediapipe, cv2, sklearn, ipykernel; print('Setup successful!')"
+python -c "import torch, tensorflow, mediapipe, cv2, sklearn, ipykernel; print('Setup successful!')"
 ```
 
 If you see `Setup successful!`, you're ready to proceed.
@@ -167,18 +168,21 @@ If `.venv` is missing, open the Command Palette (`Ctrl/Cmd + Shift + P`) → **P
 - **Windows:** `.venv\Scripts\python.exe`
 - **macOS:** `.venv/bin/python`
 
-Use the same environment for both notebooks.
+Use the same environment for all three notebooks.
 
 ### 7. Run the Notebooks
 
 Run the notebooks in this order:
 
 1. `(Participant Template) SDS_CV_Workshop.ipynb`
-2. `(Participant Template) hand-gesture-recogniser.ipynb`
+2. `(Participant Template) mini_cnn.ipynb`
+3. `(Participant Template) hand-gesture-recogniser.ipynb`
+
+The Mini CNN notebook connects the introductory CNN material to the hand gesture activity. It shows how the same backbone design can support different computer vision tasks by changing the prediction head, target and loss.
 
 Run cells from top to bottom using **Shift + Enter** or the run button beside each cell.
 
-An internet connection is required for the initial pretrained model downloads.
+The Mini CNN dataset is already included as `data/pet_mini.npz`. An internet connection is required for the initial pretrained model and MediaPipe model downloads used by the other notebooks.
 
 For the live gesture recognition activity, ensure your webcam is available and allow camera access when prompted.
 
@@ -192,7 +196,7 @@ For the live gesture recognition activity, ensure your webcam is available and a
 | **PowerShell blocks `.venv` activation** | Open a Command Prompt terminal in VS Code and run `.venv\Scripts\activate.bat`. |
 | **`.venv` not appearing in VS Code** | Open the Command Palette (`Ctrl/Cmd + Shift + P`) → **Python: Select Interpreter** → Refresh or **Enter interpreter path**. |
 | **`ModuleNotFoundError`** | Select the correct `.venv` kernel, reinstall dependencies with `python -m pip install -r requirements.txt`, then restart the kernel. |
-| **`FileNotFoundError`** | Open the `week-10-cv` folder in VS Code. Check that `data/hagrid/` exists relative to the notebook. |
+| **`FileNotFoundError`** | Open the `week-10-cv` folder in VS Code. Check that `data/pet_mini.npz` and `data/hagrid/` exist relative to the notebooks. |
 | **MediaPipe model download fails** | Check your internet connection and rerun the model download cell. |
 | **Webcam not opening** | Allow camera access, close other apps using the webcam, or try `cv2.VideoCapture(1)` instead of `cv2.VideoCapture(0)`. |
 | **Notebook stuck or outdated output** | Restart the Jupyter kernel and rerun the notebook from the beginning. |

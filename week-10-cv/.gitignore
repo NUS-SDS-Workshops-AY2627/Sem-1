@@ -1,3 +1,8 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
 # MediaPipe pretrained model (downloaded automatically by the collector)
 hand_landmarker.task
 
