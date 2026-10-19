@@ -8,8 +8,6 @@ This directory contains the datasets used in the Computer Vision workshop.
 
 Source: O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar, *Cats and Dogs*, CVPR 2012. The Oxford-IIIT Pet Dataset is distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); image copyrights remain with their original owners. This prepared subset contains resized adaptations and is shared under the same licence.
 
----
-
 ## HaGRID Hand Gesture Dataset
 
 We use a subset of the **HaGRID (HAnd Gesture Recognition Image Dataset)** containing 400 images across four gesture classes.
@@ -21,22 +19,7 @@ We use a subset of the **HaGRID (HAnd Gesture Recognition Image Dataset)** conta
 | ✋ Open Palm | `palm/` | 100 |
 | ✌️ Peace | `peace/` | 100 |
 
-### Directory Structure
-
-```text
-data/
-├── README.md
-├── pet_mini.npz
-└── hagrid/
-    ├── fist/
-    ├── like/
-    ├── palm/
-    └── peace/
-```
-
-Each gesture folder contains 100 images.
-
-### How the Dataset Is Used
+### How the HaGRID Dataset Is Used
 
 During the workshop, participants will:
 
@@ -61,6 +44,6 @@ For this workshop, we selected and organised a 400-image subset into four gestur
 
 **Attribution:** HaGRID was developed by Alexander Kapitanov and collaborators. The original dataset and its licence are linked above.
 
-## Tools
+### Tools
 
 Hand landmark extraction is performed using Google's MediaPipe Hand Landmarker.
