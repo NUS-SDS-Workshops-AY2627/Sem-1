@@ -1,150 +1,64 @@
 # Data
 
-This directory contains the datasets and image assets used for the hand gesture recognition project and Computer Vision workshop.
+This directory contains the datasets used in the Computer Vision workshop.
 
----
+## Sample Labrador Photograph
 
-## Gesture Landmark Dataset
+The introductory notebook uses `images/sample.jpg`. The file `YellowLabradorLooking_new.jpg` contains an identical copy.
 
-The gesture landmark dataset was collected by the workshop development team using webcams and **MediaPipe Hand Landmarker**.
+- **Title:** *YellowLabradorLooking new.jpg*
+- **Credit:** Original photograph by Elf; derivative work and retouching by Djmirko and FT2.
+- **Source:** [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:YellowLabradorLooking_new.jpg).
+- **Licence:** [Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/).
 
-The goal is to train a gesture classifier using hand-landmark features and evaluate whether it can generalise to a participant whose data was not used during training.
+The bundled photographs are unchanged copies of the Wikimedia file; `sample.jpg` has only been renamed. The notebook demonstrates resizing, colour-channel separation, filtering and Gaussian blur. Adapted image views are shared under CC BY-SA 3.0 with the same attribution.
 
-### Gestures
+Redistribution must retain the attribution, source and licence link. Shared adaptations must indicate the changes made and use the same or a compatible licence.
 
-The dataset contains four gesture classes:
+This notice applies to the sample photograph and its adaptations. Other datasets retain their separately stated licences.
 
-- ✋ `OPEN_PALM`
-- ✊ `FIST`
-- ✌️ `PEACE`
-- ☝️ `POINTING`
+## Mini CNN Pet Subset
 
-### Data Collection
+`pet_mini.npz` is a balanced, prepared subset of the Oxford-IIIT Pet Dataset used by the mini CNN notebook. It contains 320 training, 64 validation and 64 test photographs resized to 96 × 96, with cat/dog labels and binary animal masks. The compressed file is about 10 MB, so participants do not need to download the full dataset.
 
-Three contributors, identified anonymously as **Member A**, **Member B**, and **Member C**, collected gesture samples using the data collection script.
+Source: O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar, *Cats and Dogs*, CVPR 2012. The Oxford-IIIT Pet Dataset is distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); image copyrights remain with their original owners. This prepared subset contains resized adaptations and is shared under the same licence.
 
-Each contributor performs every gesture using both:
+## HaGRID Hand Gesture Dataset
 
-- Left hand
-- Right hand
+We use a subset of the **HaGRID (HAnd Gesture Recognition Image Dataset)** containing 400 images across four gesture classes.
 
-During collection, contributors introduce natural variation by slowly changing:
+| Gesture | Folder | Images |
+|---|---|---|
+| ✊ Fist | `fist/` | 100 |
+| 👍 Thumbs Up | `like/` | 100 |
+| ✋ Open Palm | `palm/` | 100 |
+| ✌️ Peace | `peace/` | 100 |
 
-- Hand position within the frame
-- Distance from the camera
-- Hand height
-- Hand orientation / slight rotation
-- Natural finger positioning
+### How the HaGRID Dataset Is Used
 
-The intended gesture should remain clearly recognisable throughout collection.
+During the workshop, participants will:
 
-### Landmark Extraction
+1. Use **MediaPipe Hand Landmarker** to extract 21 landmarks from each image.
+2. Convert the landmarks into 63 wrist-relative, scale-normalised features.
+3. Train a Random Forest classifier using the extracted features.
+4. Evaluate the classifier on held-out images.
 
-For every valid sample, MediaPipe Hand Landmarker extracts **21 hand landmarks**.
+Images where MediaPipe cannot detect a hand are skipped.
 
-Each landmark contains three coordinates:
+### Train/Test Split
 
-```text
-(x, y, z)
-```
+The extracted features use a stratified 80% training and 20% testing split. Because the split is performed at the image level, test images may include people represented in the training set.
 
-This gives:
+### Dataset Source and Licence
 
-```text
-21 landmarks × 3 coordinates = 63 landmark values
-```
+- **Original dataset:** [HaGRID](https://github.com/hukenovs/hagrid)
+- **Downloaded from:** [HaGRID Subsets on Hugging Face](https://huggingface.co/datasets/GestureDetectionConnoisseurs/hagrid_subsets)
+- **Licence:** [HaGRID Public Licence](https://github.com/hukenovs/hagrid/blob/master/license/en_us.pdf)
 
-To reduce dependence on where the hand appears in the image, the landmarks are represented relative to the wrist (landmark `0`):
+For this workshop, we selected and organised a 400-image subset into four gesture folders. No image content was intentionally modified. The images are redistributed under the original HaGRID Public Licence, a modified version of CC BY-SA 4.0.
 
-```python
-relative_x = landmark.x - wrist.x
-relative_y = landmark.y - wrist.y
-relative_z = landmark.z - wrist.z
-```
+**Attribution:** HaGRID was developed by Alexander Kapitanov and collaborators. The original dataset and its licence are linked above.
 
-The resulting 63 values are used as features for gesture classification.
+### Tools
 
-### Dataset Structure
-
-Each row represents one detected hand sample.
-
-The dataset contains:
-
-```text
-x0, y0, z0,
-x1, y1, z1,
-...
-x20, y20, z20,
-label,
-handedness,
-member,
-session
-```
-
-Where:
-
-- `x0 ... z20` — wrist-relative landmark features
-- `label` — gesture class
-- `handedness` — `LEFT` or `RIGHT`
-- `member` — anonymous contributor identifier (`A`, `B`, or `C`)
-- `session` — collection session identifier
-
-`handedness`, `member`, and `session` are metadata and are **not used as input features for the gesture classifier**.
-
-### Train/Test Design
-
-The contributors are intentionally separated during model evaluation:
-
-```text
-Member A ─┐
-          ├── Training
-Member B ─┘
-
-Member C ─── Held-out Test
-```
-
-Member C's samples are not used during model training.
-
-This allows the project to evaluate how well the gesture classifier generalises to a person whose hand data it has not seen during training.
-
-### Collecting the Data
-
-Each team member can collect their dataset by running:
-
-```bash
-python src/collect_workshop_data.py
-```
-
-The script guides the contributor through each gesture and handedness combination and saves only frames where MediaPipe successfully detects the hand.
-
----
-
-## Workshop Image Assets
-
-The hand gesture images in `workshop_images/` were generated using **OpenAI's image generation tools** for use as demonstration materials in this Computer Vision workshop.
-
-These images are used to demonstrate concepts such as:
-
-- Hand detection
-- Bounding boxes
-- Intersection over Union (IoU)
-- Non-Maximum Suppression (NMS)
-- Hand landmark detection
-
-### Images
-
-- `open_palm.png` — Open palm gesture
-- `fist.png` — Fist gesture
-- `peace.png` — Peace gesture
-
-### Note
-
-These images are AI-generated and do not depict real individuals.
-
-They are used as workshop demonstration assets and are separate from the hand-landmark dataset collected by the workshop development team.
-
----
-
-## Tools
-
-Hand landmark extraction is performed using **Google's MediaPipe Hand Landmarker**.
+Hand landmark extraction is performed using Google's MediaPipe Hand Landmarker.
