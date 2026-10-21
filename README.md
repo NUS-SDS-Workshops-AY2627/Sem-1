@@ -12,4 +12,8 @@ Access the materials 👉 [here](./Week-5-EDA) 👈
 #### Predicting the Unknown: An Introduction to Machine Learning 🌟
 Access the materials 👉 [here](./week-8-ml) 👈
 
+### Week 10: DL - Computer Vision 🎇
+#### See, Detect, Understand: An Introduction to Computer Vision 🌟
+Access the materials 👉 [here](./week-10-cv) 👈
+
 *More to come...* 🤩
