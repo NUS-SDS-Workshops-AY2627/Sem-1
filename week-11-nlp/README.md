@@ -10,9 +10,18 @@ The workshop is split into three sections, all in `workshop.ipynb`:
 + **Section 3 - Generation + Evaluation:** letting Gemini answer from the retrieved modules, and measuring how good the retrieval is
 
 ## **Requirements**
-For the workshop, we highly encourage you to use Google Colab during our code-along sessions. This will help prevent any version or package conflicts that you may encounter when running the code locally. Simply open `workshop.ipynb` in Colab and run the first code cell, which downloads the rest of the workshop materials for you.
+We will run the workshop locally in VS Code (or any IDE that runs Jupyter notebooks). Before the session, please install **Python `3.13.x`** (other versions may give rise to package compatibility issues) and **Git**, then set up the workshop materials:
 
-If you have prior coding experience and would prefer to run the code locally using your own IDE, you are more than welcome to pull the workshop materials from this repository into your local folder! We recommend using Python version `3.13.x`, as other versions may give rise to package compatibility issues. Please also ensure that you have the following packages installed, as we will be using them during the session (or simply run `pip install -r requirements.txt`):
+```bash
+git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git
+cd Sem-1/week-11-nlp
+
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+The virtual environment (`.venv`) keeps your workshop packages separate from your other projects, which reduces the likelihood of version conflicts. `requirements.txt` installs the following packages, which we will be using during the session:
 + `google-genai`
 + `sentence-transformers`
 + `numpy`
@@ -20,15 +29,21 @@ If you have prior coding experience and would prefer to run the code locally usi
 + `matplotlib`
 + `requests`
 
-We recommend creating a virtual environment (`venv`) to install these packages. This will help keep your workshop dependencies separate from those used in your other projects and reduce the likelihood of version conflicts. Please keep the `week-11-nlp` folder structure as is, since the notebook needs `rag_utils.py` and the `data` folder next to it.
+Next, open the `week-11-nlp` folder in VS Code, then open `workshop.ipynb`. Click **Select Kernel** (top right of the notebook) → **Python Environments**, and pick `.venv`. If VS Code asks to install `ipykernel`, click **Install**.
+
+Please keep the `week-11-nlp` folder structure as is, since the notebook needs `rag_utils.py` and the `data` folder next to it.
 
 ## **Gemini API Key**
 We will be using Gemini during the workshop, so please get your **own** free API key before the session. The free quota is counted per Google Cloud project, so a shared key would run out within minutes!
 1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey) and sign in with a *personal* Google account.
 2. Click **Create API key** and copy the key. Please **don't** set up billing, as that turns the free tier off.
-3. In Colab, click the **key icon 🔑 (Secrets)** in the left sidebar, then **Add new secret**. Name it `GEMINI_API_KEY`, paste your key as the value, and switch **Notebook access** on.
+3. Run the setup cells at the top of the notebook. When it asks for your key, paste it in and press Enter.
 
-If you are running locally, you can set `GEMINI_API_KEY` as an environment variable instead, or simply paste your key when the notebook asks for it.
+To skip pasting it every time, set `GEMINI_API_KEY` once in your terminal, then restart VS Code:
++ **macOS / Linux:** `export GEMINI_API_KEY="your-key"` (add this line to `~/.zshrc` or `~/.bashrc` to keep it)
++ **Windows:** `setx GEMINI_API_KEY "your-key"`
+
+If everything is set up, the setup cells print the number of modules loaded and `Gemini says: ready`.
 
 ## **Datasets**
 You do not need to download anything separately! The module data was fetched from NUSMods (AY 2026-2027) in advance and is already in the `data` folder:
