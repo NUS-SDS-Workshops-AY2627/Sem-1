@@ -9,33 +9,33 @@ how do I keep messages secret so only the receiver can read them,CS4230|CS4236,p
 I want to build my own video game,CS3247|CS4350|NM4260,paraphrase
 working in a team to build a large software product properly,CS2103|CS2103T|CS2103DE|CS2103R|CS2113|TCX3221,paraphrase
 how cryptocurrency and Bitcoin actually work,IS4302|FIN4724,paraphrase
-computers that use qubits instead of normal bits,CS4268|NST2030|PC2451|PC3221,paraphrase
-why do people make irrational decisions with money,EC4394|LL4308V,paraphrase
-how to manage a stock portfolio and pick investments,FIN3702A|FIN3702B|FIN3702C|FIN4761C|QF3101,paraphrase
-how to get a better deal when bargaining with someone,LL4045V|MNO3702|UTC2120,paraphrase
-what makes us aware of our own thoughts and experiences,PH3241,paraphrase
-I want to get over my fear of speaking in front of an audience,CFG1600|CFG1600S|GET1008|GEX1005,paraphrase
-how does what we eat affect our health and disease risk,FST2201|FST3202|FST3204|FST3205,paraphrase
-why do we need to sleep and what happens in the brain at night,PL4244|UTC2722,paraphrase
-how does social media affect young people's mental wellbeing,HS2911,paraphrase
 editing DNA with CRISPR,LSM4219,keyword
-stars galaxies and the universe,PC3246|PC4249|PC2411,paraphrase
-why is the planet getting hotter and what does it mean for weather,GE2208|PC4441|PC3442,paraphrase
-designing cities so that people can live and move around well,RE3705|CDE2501,paraphrase
-how the brain and nervous system work,LSM2213,paraphrase
+machine learning,CS3244|CS2109S|CS2109HS|CG3201|BT4240|CS3264,keyword
+natural language processing NLP,CS4248|DSA4213|CP4284,keyword
+computer vision image recognition,CS4243|EE4212|CS4277|EE4704,keyword
+reinforcement learning reward-based agents,CS4246|MA4275,keyword
+SQL relational databases,CS2102|IT2002|TCX2003|TIC2601,keyword
+operating systems concurrency,CS2106|CG2271,keyword
+compiler code generation machine instructions,CS4212,keyword
+cryptography encryption,CS4230|CS4236,keyword
+quantum computing qubits,CS4268|NST2030|PC2451|PC3221,keyword
 I want to learn a language to watch K-dramas without subtitles,LAK1201,vague
 something about horror movies,EN3248,vague
 I like reading poems,EN2210|EN4269,vague
 I want to start my own company,BSN3703|IS3251|ETP3121|DSA4510|TR4049N|TR4049T,vague
+I want to learn more about space,PC3246|PC4249|PC2411,vague
+something related to the human mind,PL4244|PH3241,vague
+I am interested in money and people,EC4394|LL4308V,vague
+I want to make something interactive,CS3247|CS4350|NM4260,vague
+I want to understand technology better,CS2106|CG2271,vague
+I want to explore the world of business,BSN3703|IS3251|ETP3121|DSA4510|TR4049N|TR4049T,vague
 I just finished CS2040S what should I take next,CS3230|CS3230R,prerequisite
-machine learning,CS3244|CS2109S|CS2109HS|CG3201|BT4240|CS3264,keyword
-how do I tell if a coin is fair or a result is just luck,ST2334|ST2131|MA2116|ST1131,paraphrase
-mathematics of vectors and matrices for computing students,MA1522|TCX2101,paraphrase
-"Which modules teach algorithms for solving computational problems?",CS3230|CS3230R,paraphrase
-"How can I use statistical models to make sense of data?",ST2334|ST2131|MA2116|ST1131,paraphrase
-"Which courses explain how computers communicate over networks?",CS2105|EE4204,paraphrase
-"I want to understand how databases organise information and retrieve records.",CS2102|IT2002|TCX2003|TIC2601,paraphrase
-"Which modules explore human behaviour and psychological processes?",PL4244|PH3241,paraphrase
-"What should I study if I am interested in galaxies, stars, and cosmology?",PC3246|PC4249|PC2411,paraphrase
-"Which course introduces entrepreneurship and starting a business?",BSN3703|IS3251|ETP3121|DSA4510|TR4049N|TR4049T,vague
 "After learning the basics of machine learning, which modules could I consider next?",CS3244|CS2109S|CS2109HS|CG3201|BT4240|CS3264,prerequisite
+"I completed introductory programming; what algorithms module could I take next?",CS3230|CS3230R,prerequisite
+"After studying basic statistics, what modules could help me go further?",ST2334|ST2131|MA2116|ST1131,prerequisite
+"I know the basics of databases; what related module should I consider next?",CS2102|IT2002|TCX2003|TIC2601,prerequisite
+"After learning introductory computer science, what can I study about operating systems?",CS2106|CG2271,prerequisite
+"I have learned basic programming and want to study software engineering next",CS2103|CS2103T|CS2103DE|CS2103R|CS2113|TCX3221,prerequisite
+"After an introduction to AI, what modules can I take to study machine learning?",CS3244|CS2109S|CS2109HS|CG3201|BT4240|CS3264,prerequisite
+"I have studied basic physics; what can I take to learn about quantum computing?",CS4268|NST2030|PC2451|PC3221,prerequisite
+"After learning about networks, what related computing modules could I take?",CS2105|EE4204,prerequisite

@@ -103,18 +103,45 @@ def search(query, k=5, embeddings=None, modules=None):
 
 
 # --- Section 1 ---------------------------------------------------------------
-def keyword_search(query):
-    """Plain substring match over descriptions, like Ctrl+F."""
+
+import re
+
+def keyword_search(query, k=5):
+    """
+    Ranked keyword search across module titles and descriptions.
+    Returns the top k matching modules.
+    """
     _check_loaded()
-    needle = query.lower()
-    return [module for module in modules if needle in module["description"].lower()]
 
+    terms = set(re.findall(r"\b[a-z0-9]+\b", query.lower()))
 
-GEMINI_API_KEY = None  # set by connect_gemini()
-_gemini_client = None  # kept alive here: google-genai closes a client once it is garbage-collected
+    if not terms:
+        return []
 
-# Answers saved while rehearsing, keyed by the exact prompt. Shown when the API call fails.
-CANNED_ANSWERS = {}
+    scored_modules = []
+
+    for module in modules:
+        title = module.get("title", "").lower()
+        description = module.get("description", "").lower()
+
+        title_terms = set(re.findall(r"\b[a-z0-9]+\b", title))
+        description_terms = set(
+            re.findall(r"\b[a-z0-9]+\b", description)
+        )
+
+        title_matches = terms & title_terms
+        description_matches = terms & description_terms
+
+        # Title matches receive greater weight
+        score = 3 * len(title_matches) + len(description_matches)
+
+        if score > 0:
+            scored_modules.append((module, score))
+
+    scored_modules.sort(key=lambda item: item[1], reverse=True)
+
+    return [module for module, score in scored_modules[:k]]
+
 
 
 def connect_gemini(api_key=None):
