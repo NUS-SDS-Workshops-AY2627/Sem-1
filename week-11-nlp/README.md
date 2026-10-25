@@ -34,7 +34,7 @@ If you are running locally, you can set `GEMINI_API_KEY` as an environment varia
 You do not need to download anything separately! The module data was fetched from NUSMods (AY 2026-2027) in advance and is already in the `data` folder:
 + `modules_slim.json`: every module offered in AY 2026-2027, with its code, title, description, workload and more
 + `embeddings.npy`: the precomputed embeddings for each module
-+ `embeddings_no_title.npy`: the same embeddings without the module title, used in Section 2
++ `embeddings_no_title.npy`: the same embeddings without the module title, for trying out different chunk fields (see `search` in `rag_utils.py`)
 + `eval_set_v2.csv`: test questions with their relevant modules, used in Section 3
 
 Feel free to reach out to any of your workshop guides - Nabil, Sara, Dharsh - for help if you encounter any issues. Thank you, and happy coding! 😄
