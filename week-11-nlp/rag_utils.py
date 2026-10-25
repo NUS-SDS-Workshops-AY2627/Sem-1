@@ -9,6 +9,7 @@ Typical setup cell:
 
 import json
 import os
+import re
 from pathlib import Path
 
 import numpy as np
@@ -108,6 +109,28 @@ def keyword_search(query):
     _check_loaded()
     needle = query.lower()
     return [module for module in modules if needle in module["description"].lower()]
+
+
+# --- Evaluation (Section 3) --------------------------------------------------
+WORD = re.compile(r"\b[a-z0-9]+\b")
+
+
+def ranked_keyword_search(query, k=5):
+    """Return the top k modules by words shared with the query, a keyword baseline.
+
+    A word in the title counts 3, a word in the description counts 1.
+    """
+    _check_loaded()
+    terms = set(WORD.findall(query.lower()))
+    scored = []
+    for module in modules:
+        title_terms = set(WORD.findall(module.get("title", "").lower()))
+        description_terms = set(WORD.findall(module.get("description", "").lower()))
+        score = 3 * len(terms & title_terms) + len(terms & description_terms)
+        if score > 0:
+            scored.append((module, score))
+    scored.sort(key=lambda pair: pair[1], reverse=True)
+    return [module for module, score in scored[:k]]
 
 
 GEMINI_API_KEY = None  # set by connect_gemini()
