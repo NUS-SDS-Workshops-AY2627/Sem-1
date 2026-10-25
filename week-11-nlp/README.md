@@ -10,16 +10,19 @@ The workshop is split into three sections, all in `workshop.ipynb`:
 + **Section 3 - Generation + Evaluation:** letting Gemini answer from the retrieved modules, and measuring how good the retrieval is
 
 ## **Requirements**
-We will run the workshop locally in VS Code (or any IDE that runs Jupyter notebooks). Before the session, please install **Python `3.13.x`** (other versions may give rise to package compatibility issues) and **Git**, then set up the workshop materials:
+We will run the workshop locally in VS Code (or any IDE that runs Jupyter notebooks). Before the session, please install **Python `3.12.x`** ([download here](https://www.python.org/downloads/release/python-31210/); other versions may give rise to package compatibility issues) and **Git**, then set up the workshop materials:
 
 ```bash
 git clone https://github.com/NUS-SDS-Workshops-AY2627/Sem-1.git
 cd Sem-1/week-11-nlp
 
-python -m venv .venv
+python3.12 -m venv .venv         # Windows: py -3.12 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
+python --version                 # should print Python 3.12.x
 pip install -r requirements.txt
 ```
+
+If you already set up a Python 3.12 `.venv` for the Week 10 workshop, you still need a new one here, since the packages are different.
 
 The virtual environment (`.venv`) keeps your workshop packages separate from your other projects, which reduces the likelihood of version conflicts. `requirements.txt` installs the following packages, which we will be using during the session:
 + `google-genai`
@@ -28,8 +31,9 @@ The virtual environment (`.venv`) keeps your workshop packages separate from you
 + `pandas`
 + `matplotlib`
 + `requests`
++ `ipykernel` (lets VS Code run the notebook with your `.venv`)
 
-Next, open the `week-11-nlp` folder in VS Code, then open `workshop.ipynb`. Click **Select Kernel** (top right of the notebook) → **Python Environments**, and pick `.venv`. If VS Code asks to install `ipykernel`, click **Install**.
+Next, open the `week-11-nlp` folder in VS Code, then open `workshop.ipynb`. Click **Select Kernel** (top right of the notebook) → **Python Environments**, and pick `.venv`.
 
 Please keep the `week-11-nlp` folder structure as is, since the notebook needs `rag_utils.py` and the `data` folder next to it.
 
