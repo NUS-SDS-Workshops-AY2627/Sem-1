@@ -1,41 +1,41 @@
-query,category,relevant_codes,top_k_module_codes,rank_of_first_relevant,hit_at_5,reciprocal_rank
-I want to study how computers process human language,paraphrase,CP4284 | CS4248 | DSA4213,HS2914 | PL3281E | EL2206 | EL1101E | EL3206,0,0,0.0
-how do apps like Google Lens recognise what's in a photo,paraphrase,CS4243 | CS4277 | EE4212 | EE4704,NST2050 | EE6733 | EE4212 | AIS5202 | CS5240,3,1,0.3333333333333333
-teach an AI agent to learn by trial and error and rewards,paraphrase,CS4246 | MA4275,CS3227 | TCX2006 | IS4403 | EE2213 | MSI5001,0,0,0.0
-how to store and query data for a website backend using SQL,paraphrase,CS2102 | IT2002 | TCX2003 | TIC2601,TIC2601 | DSA5104 | CS3223 | IT2002 | TCX2003,1,1,1.0
-what happens inside my laptop when I run several programs at once,paraphrase,CG2271 | CS2106,CS6215 | CS5218 | CS5239 | CS3210 | CS2100DE,0,0,0.0
-how does code I write get translated into machine instructions,paraphrase,CS4212,GET1036 | CS4215 | CS4212 | GEX1019 | HS2914,3,1,0.3333333333333333
-how do I keep messages secret so only the receiver can read them,paraphrase,CS4230 | CS4236,CS4230 | CS5430 | SWE5005G | SWE5005 | CS3236,1,1,1.0
-I want to build my own video game,paraphrase,CS3247 | CS4350 | NM4260,CS4350 | NM4260 | CS3247 | HY2272 | ME5612,1,1,1.0
-working in a team to build a large software product properly,paraphrase,CS2103 | CS2103DE | CS2103R | CS2103T | CS2113 | TCX3221,MLE4102A | SWE5007 | CS3216 | CDE3301 | TCX3224,0,0,0.0
-how cryptocurrency and Bitcoin actually work,paraphrase,FIN4724 | IS4302,QF4211 | DSE4211 | CS4236 | FIN4724 | FT5003,4,1,0.25
-computers that use qubits instead of normal bits,paraphrase,CS4268 | NST2030 | PC2451 | PC3221,QT5105 | PC5228 | PC3288Q | PC3289Q | PC3288QR,0,0,0.0
-why do people make irrational decisions with money,paraphrase,EC4394 | LL4308V,PE3101P | EC6884 | BMA5429 | ECA5884 | BMS5411,0,0,0.0
-how to manage a stock portfolio and pick investments,paraphrase,FIN3702A | FIN3702B | FIN3702C | FIN4761C | QF3101,FIN3702B | FIN3702A | FIN4716 | FIN4761C | FIN3702C,1,1,1.0
-how to get a better deal when bargaining with someone,paraphrase,LL4045V | MNO3702 | UTC2120,LL6045V | LL5045V | LL5485X | LLJ5045V | LL4045V,5,1,0.2
-what makes us aware of our own thoughts and experiences,paraphrase,PH3241,UTC1113 | UTW1001V | PLS8002B | NHS2088 | PLS8002A,0,0,0.0
-I want to get over my fear of speaking in front of an audience,paraphrase,CFG1600 | CFG1600S | GET1008 | GEX1005,GET1008 | GEX1005 | UTC1116 | EL2207 | CFG1600S,1,1,1.0
-how does what we eat affect our health and disease risk,paraphrase,FST2201 | FST3202 | FST3204 | FST3205,FST5301A | FST3202 | FST5303A | UTS2719 | SPH2203,2,1,0.5
-why do we need to sleep and what happens in the brain at night,paraphrase,PL4244 | UTC2722,PL4244 | HS2937 | HPP5003 | HPP5112 | GEX1009,1,1,1.0
-how does social media affect young people's mental wellbeing,paraphrase,HS2911,HS2911 | NM2209 | UTC1422 | NM2101 | NM4255,1,1,1.0
-editing DNA with CRISPR,keyword,LSM4219,LSM4219 | BL5642 | HS2926 | LSM3247 | LSM3244,1,1,1.0
-stars galaxies and the universe,paraphrase,PC2411 | PC3246 | PC4249,PC3413 | PC3412 | AIS5201 | SP3176 | PC4249,5,1,0.2
-why is the planet getting hotter and what does it mean for weather,paraphrase,GE2208 | PC3442 | PC4441,PC3442 | PC4441 | HSI2009 | GE2208 | CCS5201,1,1,1.0
-designing cities so that people can live and move around well,paraphrase,CDE2501 | RE3705,AR5601 | AR4601 | UD5628 | CDE2502 | GEH1077,0,0,0.0
-how the brain and nervous system work,paraphrase,LSM2213,BN5209 | LSM3222 | LSM4213 | PL3102 | LSM2213,5,1,0.2
-I want to learn a language to watch K-dramas without subtitles,vague,LAK1201,SC2229 | TRA3203 | LAT1201 | LAT3201 | LAT3202,0,0,0.0
-something about horror movies,vague,EN3248,EN3248 | NHS2085 | NHS2104 | GEH1053 | GEC1017,1,1,1.0
-I like reading poems,vague,EN2210 | EN4269,EN2210 | CL4223 | EN2202 | CHC5313 | CHC5353,1,1,1.0
-I want to start my own company,vague,BSN3703 | DSA4510 | ETP3121 | IS3251 | TR4049N | TR4049T,TR3203N | TR3203P | TR3203E | TR3203T | TR3203I,0,0,0.0
-I just finished CS2040S what should I take next,prerequisite,CS3230 | CS3230R,CS4350 | CS4238 | CG4002 | CS3247 | CS3241,0,0,0.0
-machine learning,keyword,BT4240 | CG3201 | CS2109HS | CS2109S | CS3244 | CS3264,EE2211 | DSA5102 | DSA5105 | MLE3112 | CS2109HS,5,1,0.2
-how do I tell if a coin is fair or a result is just luck,paraphrase,MA2116 | ST1131 | ST2131 | ST2334,GEH1074 | GEC1028 | FSC4201 | PH6211 | CS5330,0,0,0.0
-mathematics of vectors and matrices for computing students,paraphrase,MA1522 | TCX2101,MA1522 | MA2001 | MA4230 | TTG1401 | MA1513,1,1,1.0
-Which modules teach algorithms for solving computational problems?,paraphrase,CS3230 | CS3230R,NPS2001A | NPS2001C | NPS2001B | MA5233 | NPS2002,0,0,0.0
-How can I use statistical models to make sense of data?,paraphrase,MA2116 | ST1131 | ST2131 | ST2334,GEA1000 | GEA1000N | ST5201 | SC5102 | DSA5831,0,0,0.0
-Which courses explain how computers communicate over networks?,paraphrase,CS2105 | EE4204,CS3103 | EE4204 | TIC2901 | NMC5307 | CS5229,2,1,0.5
-I want to understand how databases organise information and retrieve records.,paraphrase,CS2102 | IT2002 | TCX2003 | TIC2601,DSA5104 | IT2002 | TCX2003 | CS3223 | CS6203,2,1,0.5
-Which modules explore human behaviour and psychological processes?,paraphrase,PH3241 | PL4244,PL1101E | PL3105 | PL3102 | GEX1009 | PL3103,0,0,0.0
-"What should I study if I am interested in galaxies, stars, and cosmology?",paraphrase,PC2411 | PC3246 | PC4249,PC3246 | GEX1024T | SP3176 | AIS5201 | PC3411,1,1,1.0
-Which course introduces entrepreneurship and starting a business?,vague,BSN3703 | DSA4510 | ETP3121 | IS3251 | TR4049N | TR4049T,TR3301 | ETP3321 | BMA5314 | BMS5124S | TR3204S,0,0,0.0
-"After learning the basics of machine learning, which modules could I consider next?",prerequisite,BT4240 | CG3201 | CS2109HS | CS2109S | CS3244 | CS3264,CS6216 | EE2211 | SA4110 | EE3703 | SA4110C,0,0,0.0
+query,category,relevant_codes,top_k_module_codes,rank_of_first_relevant,hit_at_5,recall_at_5,reciprocal_rank
+I want to study how computers process human language,paraphrase,CP4284 | CS4248 | DSA4213,HS2914 | PL3281E | EL2206 | EL1101E | EL3206,0,0,0.0,0.0
+how do apps like Google Lens recognise what's in a photo,paraphrase,CS4243 | CS4277 | EE4212 | EE4704,NST2050 | EE6733 | EE4212 | AIS5202 | CS5240,3,1,0.25,0.3333333333333333
+teach an AI agent to learn by trial and error and rewards,paraphrase,CS4246 | MA4275,CS3227 | TCX2006 | IS4403 | EE2213 | MSI5001,0,0,0.0,0.0
+how to store and query data for a website backend using SQL,paraphrase,CS2102 | IT2002 | TCX2003 | TIC2601,TIC2601 | DSA5104 | CS3223 | IT2002 | TCX2003,1,1,0.75,1.0
+what happens inside my laptop when I run several programs at once,paraphrase,CG2271 | CS2106,CS6215 | CS5218 | CS5239 | CS3210 | CS2100DE,0,0,0.0,0.0
+how does code I write get translated into machine instructions,paraphrase,CS4212,GET1036 | CS4215 | CS4212 | GEX1019 | HS2914,3,1,1.0,0.3333333333333333
+how do I keep messages secret so only the receiver can read them,paraphrase,CS4230 | CS4236,CS4230 | CS5430 | SWE5005G | SWE5005 | CS3236,1,1,0.5,1.0
+I want to build my own video game,paraphrase,CS3247 | CS4350 | NM4260,CS4350 | NM4260 | CS3247 | HY2272 | ME5612,1,1,1.0,1.0
+working in a team to build a large software product properly,paraphrase,CS2103 | CS2103DE | CS2103R | CS2103T | CS2113 | TCX3221,MLE4102A | SWE5007 | CS3216 | CDE3301 | TCX3224,0,0,0.0,0.0
+how cryptocurrency and Bitcoin actually work,paraphrase,FIN4724 | IS4302,QF4211 | DSE4211 | CS4236 | FIN4724 | FT5003,4,1,0.5,0.25
+editing DNA with CRISPR,keyword,LSM4219,LSM4219 | BL5642 | HS2926 | LSM3247 | LSM3244,1,1,1.0,1.0
+machine learning,keyword,BT4240 | CG3201 | CS2109HS | CS2109S | CS3244 | CS3264,EE2211 | DSA5102 | DSA5105 | MLE3112 | CS2109HS,5,1,0.16666666666666666,0.2
+natural language processing NLP,keyword,CP4284 | CS4248 | DSA4213,CS6207 | DSA4213 | ST5230 | TCX3214 | LL4530V,2,1,0.3333333333333333,0.5
+computer vision image recognition,keyword,CS4243 | CS4277 | EE4212 | EE4704,CS4243 | EE5731 | EE6733 | ME5405 | EE4212,1,1,0.5,1.0
+reinforcement learning reward-based agents,keyword,CS4246 | MA4275,CS5446 | CS4246 | MA4275 | CEG5301 | IE5603,2,1,1.0,0.5
+SQL relational databases,keyword,CS2102 | IT2002 | TCX2003 | TIC2601,IT5008 | CS2102 | CS4221 | CS5421 | IT2002,2,1,0.5,0.5
+operating systems concurrency,keyword,CG2271 | CS2106,CS2106 | CS3211 | CS5250 | CS4223 | CS5223,1,1,0.5,1.0
+compiler code generation machine instructions,keyword,CS4212,CS4212 | CS4215 | TEE2101 | CS2104 | CS5218,1,1,1.0,1.0
+cryptography encryption,keyword,CS4230 | CS4236,CS6230 | CS4236 | CS5430 | CS4230 | CS3236,2,1,1.0,0.5
+quantum computing qubits,keyword,CS4268 | NST2030 | PC2451 | PC3221,PC5228 | NST2030 | QT5105 | CS4268 | PC2451,2,1,0.75,0.5
+I want to learn a language to watch K-dramas without subtitles,vague,LAK1201,SC2229 | TRA3203 | LAT1201 | LAT3201 | LAT3202,0,0,0.0,0.0
+something about horror movies,vague,EN3248,EN3248 | NHS2085 | NHS2104 | GEH1053 | GEC1017,1,1,1.0,1.0
+I like reading poems,vague,EN2210 | EN4269,EN2210 | CL4223 | EN2202 | CHC5313 | CHC5353,1,1,0.5,1.0
+I want to start my own company,vague,BSN3703 | DSA4510 | ETP3121 | IS3251 | TR4049N | TR4049T,TR3203N | TR3203P | TR3203E | TR3203T | TR3203I,0,0,0.0,0.0
+I want to learn more about space,vague,PC2411 | PC3246 | PC4249,NTW2036 | GE2231 | SP3176 | CDE2311 | PC2412,0,0,0.0,0.0
+something related to the human mind,vague,PH3241 | PL4244,GEX1009 | NST2062 | GEX1009T | PL5303 | PL3103,0,0,0.0,0.0
+I am interested in money and people,vague,EC4394 | LL4308V,DSE4211 | QF4211 | BSE4761A | CFG1003 | FIN4724,0,0,0.0,0.0
+I want to make something interactive,vague,CS3247 | CS4350 | NM4260,CS3249 | ID3132 | ID3131 | ID5363 | TIC3002,0,0,0.0,0.0
+I want to understand technology better,vague,CG2271 | CS2106,GMS5302 | SC3211 | CS6206 | BSN3701A | BSN3701B,0,0,0.0,0.0
+I want to explore the world of business,vague,BSN3703 | DSA4510 | ETP3121 | IS3251 | TR4049N | TR4049T,BMC5838 | BMA5112 | BMS5114 | BMC5841 | BME5801,0,0,0.0,0.0
+I just finished CS2040S what should I take next,prerequisite,CS3230 | CS3230R,CS4350 | CS4238 | CG4002 | CS3247 | CS3241,0,0,0.0,0.0
+"After learning the basics of machine learning, which modules could I consider next?",prerequisite,BT4240 | CG3201 | CS2109HS | CS2109S | CS3244 | CS3264,CS6216 | EE2211 | SA4110 | EE3703 | SA4110C,0,0,0.0,0.0
+I completed introductory programming; what algorithms module could I take next?,prerequisite,CS3230 | CS3230R,IE5600 | CS1010HS | CS1010X | TIE2030 | CS1010E,0,0,0.0,0.0
+"After studying basic statistics, what modules could help me go further?",prerequisite,MA2116 | ST1131 | ST2131 | ST2334,ST1131 | ST2334 | ST2137 | MA2401 | ST4288,1,1,0.5,1.0
+I know the basics of databases; what related module should I consider next?,prerequisite,CS2102 | IT2002 | TCX2003 | TIC2601,CS5421 | TIC2601 | IT2002 | CS4221 | TCX2003,2,1,0.75,0.5
+"After learning introductory computer science, what can I study about operating systems?",prerequisite,CG2271 | CS2106,CS5250 | CS2106 | IT5002 | TIC2401 | CS6219,2,1,0.5,0.5
+I have learned basic programming and want to study software engineering next,prerequisite,CS2103 | CS2103DE | CS2103R | CS2103T | CS2113 | TCX3221,CS2113 | IT5001X | IT5001 | CS2103 | CS2103T,1,1,0.5,1.0
+"After an introduction to AI, what modules can I take to study machine learning?",prerequisite,BT4240 | CG3201 | CS2109HS | CS2109S | CS3244 | CS3264,MSI5001 | UTC1802 | MSI5102 | CS2109HS | IS2109,4,1,0.16666666666666666,0.25
+I have studied basic physics; what can I take to learn about quantum computing?,prerequisite,CS4268 | NST2030 | PC2451 | PC3221,PC2451 | PC5228 | NST2030 | CS4268 | PC3221,1,1,1.0,1.0
+"After learning about networks, what related computing modules could I take?",prerequisite,CS2105 | EE4204,CS3103 | CS5229 | CEG5101 | CS5284 | EE4312,0,0,0.0,0.0

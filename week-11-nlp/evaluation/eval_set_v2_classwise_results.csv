@@ -1,0 +1,5 @@
+Query Category,Queries,Hit@5 (%),Recall@5 (%),MRR
+keyword,10,100.0,67.5,0.67
+paraphrase,10,60.0,40.0,0.392
+prerequisite,10,60.0,34.17,0.425
+vague,10,20.0,15.0,0.2
