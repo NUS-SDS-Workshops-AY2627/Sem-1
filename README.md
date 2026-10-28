@@ -50,6 +50,10 @@ Access the materials 👉 [here](./week-8-ml) 👈
 #### See, Detect, Understand: An Introduction to Computer Vision 🌟
 Access the materials 👉 [here](./week-10-cv) 👈
 
+### Week 11: DL - Natural Language Processing 📜
+#### RAG from Scratch: Search NUSMods Like It Understands You 🌟
+Access the materials 👉 [here](./week-11-nlp) 👈
+
 *More to come...* 🤩
 
 ## Getting started
